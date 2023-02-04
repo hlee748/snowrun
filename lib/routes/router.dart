@@ -2,6 +2,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:snowrun/presentation/history/history_page.dart';
 import 'package:snowrun/presentation/home/home_page.dart';
+import 'package:snowrun/presentation/navigate/navigate_page.dart';
 import 'package:snowrun/presentation/record/record_page.dart';
 import 'package:snowrun/presentation/setting/setting_page.dart';
 import 'package:snowrun/presentation/splash/splash_page.dart';
@@ -28,6 +29,12 @@ import 'package:snowrun/presentation/splash/splash_page.dart';
     //   // fullscreenDialog: true,
     //   transitionsBuilder: TransitionsBuilders.noTransition,
     // ),
+    CustomRoute(
+      page: NavigatePage,
+      path: '/home',
+      // fullscreenDialog: true,
+      transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+    ),
     CustomRoute(
       page: HomePage,
       path: '/home',

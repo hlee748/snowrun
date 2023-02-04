@@ -3,17 +3,23 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:snowrun/injection.dart';
+import 'package:snowrun/presentation/navigate/i_navigate_tab_page.dart';
 import 'package:snowrun/routes/router.gr.dart';
 
 // Project imports:
 
-class SettingPage extends StatefulWidget {
+class SettingPage extends StatefulWidget implements INavigateTabPage{
   const SettingPage({
     super.key,
   });
 
   @override
   SettingState createState() => SettingState();
+
+  @override
+  void onSelectedPage() {
+    // TODO: implement onSelectedPage
+  }
 }
 
 class SettingState extends State<SettingPage> {

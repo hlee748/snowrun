@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:snowrun/injection.dart';
+import 'package:snowrun/presentation/navigate/navigate_page.dart';
 import 'package:snowrun/routes/router.gr.dart';
 
 // Project imports:
@@ -54,7 +55,7 @@ class SplashState extends State<SplashPage> {
             child: Center(
               child: TextButton(
                 onPressed: () {
-                   appRouter.push(const HomePageRoute());
+                   appRouter.push(const NavigatePageRoute());
                 },
                 child: const Text("Home 가기"),
               ),

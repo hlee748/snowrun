@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BottomNavigationEvent {
-  int get position => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int position) changePosition,
+    required TResult Function(bool isInit) initBottomSheet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int position)? changePosition,
+    TResult? Function(bool isInit)? initBottomSheet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int position)? changePosition,
+    TResult Function(bool isInit)? initBottomSheet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangePosition value) changePosition,
+    required TResult Function(_InitBottomSheet value) initBottomSheet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ChangePosition value)? changePosition,
+    TResult? Function(_InitBottomSheet value)? initBottomSheet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePosition value)? changePosition,
+    TResult Function(_InitBottomSheet value)? initBottomSheet,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $BottomNavigationEventCopyWith<BottomNavigationEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $BottomNavigationEventCopyWith<$Res> {
   factory $BottomNavigationEventCopyWith(BottomNavigationEvent value,
           $Res Function(BottomNavigationEvent) then) =
       _$BottomNavigationEventCopyWithImpl<$Res, BottomNavigationEvent>;
-  @useResult
-  $Res call({int position});
 }
 
 /// @nodoc
@@ -74,28 +73,13 @@ class _$BottomNavigationEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? position = null,
-  }) {
-    return _then(_value.copyWith(
-      position: null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_ChangePositionCopyWith<$Res>
-    implements $BottomNavigationEventCopyWith<$Res> {
+abstract class _$$_ChangePositionCopyWith<$Res> {
   factory _$$_ChangePositionCopyWith(
           _$_ChangePosition value, $Res Function(_$_ChangePosition) then) =
       __$$_ChangePositionCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int position});
 }
@@ -157,6 +141,7 @@ class _$_ChangePosition implements _ChangePosition {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int position) changePosition,
+    required TResult Function(bool isInit) initBottomSheet,
   }) {
     return changePosition(position);
   }
@@ -165,6 +150,7 @@ class _$_ChangePosition implements _ChangePosition {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int position)? changePosition,
+    TResult? Function(bool isInit)? initBottomSheet,
   }) {
     return changePosition?.call(position);
   }
@@ -173,6 +159,7 @@ class _$_ChangePosition implements _ChangePosition {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int position)? changePosition,
+    TResult Function(bool isInit)? initBottomSheet,
     required TResult orElse(),
   }) {
     if (changePosition != null) {
@@ -185,6 +172,7 @@ class _$_ChangePosition implements _ChangePosition {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangePosition value) changePosition,
+    required TResult Function(_InitBottomSheet value) initBottomSheet,
   }) {
     return changePosition(this);
   }
@@ -193,6 +181,7 @@ class _$_ChangePosition implements _ChangePosition {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ChangePosition value)? changePosition,
+    TResult? Function(_InitBottomSheet value)? initBottomSheet,
   }) {
     return changePosition?.call(this);
   }
@@ -201,6 +190,7 @@ class _$_ChangePosition implements _ChangePosition {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangePosition value)? changePosition,
+    TResult Function(_InitBottomSheet value)? initBottomSheet,
     required TResult orElse(),
   }) {
     if (changePosition != null) {
@@ -213,17 +203,149 @@ class _$_ChangePosition implements _ChangePosition {
 abstract class _ChangePosition implements BottomNavigationEvent {
   const factory _ChangePosition(final int position) = _$_ChangePosition;
 
-  @override
   int get position;
-  @override
   @JsonKey(ignore: true)
   _$$_ChangePositionCopyWith<_$_ChangePosition> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$_InitBottomSheetCopyWith<$Res> {
+  factory _$$_InitBottomSheetCopyWith(
+          _$_InitBottomSheet value, $Res Function(_$_InitBottomSheet) then) =
+      __$$_InitBottomSheetCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isInit});
+}
+
+/// @nodoc
+class __$$_InitBottomSheetCopyWithImpl<$Res>
+    extends _$BottomNavigationEventCopyWithImpl<$Res, _$_InitBottomSheet>
+    implements _$$_InitBottomSheetCopyWith<$Res> {
+  __$$_InitBottomSheetCopyWithImpl(
+      _$_InitBottomSheet _value, $Res Function(_$_InitBottomSheet) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isInit = null,
+  }) {
+    return _then(_$_InitBottomSheet(
+      null == isInit
+          ? _value.isInit
+          : isInit // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InitBottomSheet implements _InitBottomSheet {
+  const _$_InitBottomSheet(this.isInit);
+
+  @override
+  final bool isInit;
+
+  @override
+  String toString() {
+    return 'BottomNavigationEvent.initBottomSheet(isInit: $isInit)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InitBottomSheet &&
+            (identical(other.isInit, isInit) || other.isInit == isInit));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isInit);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitBottomSheetCopyWith<_$_InitBottomSheet> get copyWith =>
+      __$$_InitBottomSheetCopyWithImpl<_$_InitBottomSheet>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int position) changePosition,
+    required TResult Function(bool isInit) initBottomSheet,
+  }) {
+    return initBottomSheet(isInit);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int position)? changePosition,
+    TResult? Function(bool isInit)? initBottomSheet,
+  }) {
+    return initBottomSheet?.call(isInit);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int position)? changePosition,
+    TResult Function(bool isInit)? initBottomSheet,
+    required TResult orElse(),
+  }) {
+    if (initBottomSheet != null) {
+      return initBottomSheet(isInit);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangePosition value) changePosition,
+    required TResult Function(_InitBottomSheet value) initBottomSheet,
+  }) {
+    return initBottomSheet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangePosition value)? changePosition,
+    TResult? Function(_InitBottomSheet value)? initBottomSheet,
+  }) {
+    return initBottomSheet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangePosition value)? changePosition,
+    TResult Function(_InitBottomSheet value)? initBottomSheet,
+    required TResult orElse(),
+  }) {
+    if (initBottomSheet != null) {
+      return initBottomSheet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitBottomSheet implements BottomNavigationEvent {
+  const factory _InitBottomSheet(final bool isInit) = _$_InitBottomSheet;
+
+  bool get isInit;
+  @JsonKey(ignore: true)
+  _$$_InitBottomSheetCopyWith<_$_InitBottomSheet> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$BottomNavigationState {
   DefaultStatus get status => throw _privateConstructorUsedError;
+  bool get isFinishInitialize => throw _privateConstructorUsedError;
   int get currentPosition => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -237,7 +359,8 @@ abstract class $BottomNavigationStateCopyWith<$Res> {
           $Res Function(BottomNavigationState) then) =
       _$BottomNavigationStateCopyWithImpl<$Res, BottomNavigationState>;
   @useResult
-  $Res call({DefaultStatus status, int currentPosition});
+  $Res call(
+      {DefaultStatus status, bool isFinishInitialize, int currentPosition});
 }
 
 /// @nodoc
@@ -255,6 +378,7 @@ class _$BottomNavigationStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? status = null,
+    Object? isFinishInitialize = null,
     Object? currentPosition = null,
   }) {
     return _then(_value.copyWith(
@@ -262,6 +386,10 @@ class _$BottomNavigationStateCopyWithImpl<$Res,
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DefaultStatus,
+      isFinishInitialize: null == isFinishInitialize
+          ? _value.isFinishInitialize
+          : isFinishInitialize // ignore: cast_nullable_to_non_nullable
+              as bool,
       currentPosition: null == currentPosition
           ? _value.currentPosition
           : currentPosition // ignore: cast_nullable_to_non_nullable
@@ -278,7 +406,8 @@ abstract class _$$_BottomNavigationStateCopyWith<$Res>
       __$$_BottomNavigationStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DefaultStatus status, int currentPosition});
+  $Res call(
+      {DefaultStatus status, bool isFinishInitialize, int currentPosition});
 }
 
 /// @nodoc
@@ -293,6 +422,7 @@ class __$$_BottomNavigationStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? isFinishInitialize = null,
     Object? currentPosition = null,
   }) {
     return _then(_$_BottomNavigationState(
@@ -300,6 +430,10 @@ class __$$_BottomNavigationStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DefaultStatus,
+      isFinishInitialize: null == isFinishInitialize
+          ? _value.isFinishInitialize
+          : isFinishInitialize // ignore: cast_nullable_to_non_nullable
+              as bool,
       currentPosition: null == currentPosition
           ? _value.currentPosition
           : currentPosition // ignore: cast_nullable_to_non_nullable
@@ -312,16 +446,20 @@ class __$$_BottomNavigationStateCopyWithImpl<$Res>
 
 class _$_BottomNavigationState implements _BottomNavigationState {
   const _$_BottomNavigationState(
-      {required this.status, required this.currentPosition});
+      {required this.status,
+      required this.isFinishInitialize,
+      required this.currentPosition});
 
   @override
   final DefaultStatus status;
+  @override
+  final bool isFinishInitialize;
   @override
   final int currentPosition;
 
   @override
   String toString() {
-    return 'BottomNavigationState(status: $status, currentPosition: $currentPosition)';
+    return 'BottomNavigationState(status: $status, isFinishInitialize: $isFinishInitialize, currentPosition: $currentPosition)';
   }
 
   @override
@@ -330,12 +468,15 @@ class _$_BottomNavigationState implements _BottomNavigationState {
         (other.runtimeType == runtimeType &&
             other is _$_BottomNavigationState &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.isFinishInitialize, isFinishInitialize) ||
+                other.isFinishInitialize == isFinishInitialize) &&
             (identical(other.currentPosition, currentPosition) ||
                 other.currentPosition == currentPosition));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, currentPosition);
+  int get hashCode =>
+      Object.hash(runtimeType, status, isFinishInitialize, currentPosition);
 
   @JsonKey(ignore: true)
   @override
@@ -348,10 +489,13 @@ class _$_BottomNavigationState implements _BottomNavigationState {
 abstract class _BottomNavigationState implements BottomNavigationState {
   const factory _BottomNavigationState(
       {required final DefaultStatus status,
+      required final bool isFinishInitialize,
       required final int currentPosition}) = _$_BottomNavigationState;
 
   @override
   DefaultStatus get status;
+  @override
+  bool get isFinishInitialize;
   @override
   int get currentPosition;
   @override
