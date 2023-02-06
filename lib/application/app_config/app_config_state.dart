@@ -7,10 +7,8 @@ class AppConfigState with _$AppConfigState {
     required String splashUrl,
   }) = _AppConfigState;
 
-  factory AppConfigState.initial() {
-    return const AppConfigState(
-      status: DefaultStatus.initial,
-      splashUrl: "",
-    );
-  }
+  factory AppConfigState.initial() => const AppConfigState(
+    status: DefaultStatus.initial,
+    splashUrl: "",
+  );
 }

@@ -16,42 +16,37 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppConfigEvent {
-  String get splashUrl => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String splashUrl) splash,
+    required TResult Function() getSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String splashUrl)? splash,
+    TResult? Function()? getSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String splashUrl)? splash,
+    TResult Function()? getSplash,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Splash value) splash,
+    required TResult Function(_GetSplash value) getSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Splash value)? splash,
+    TResult? Function(_GetSplash value)? getSplash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Splash value)? splash,
+    TResult Function(_GetSplash value)? getSplash,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AppConfigEventCopyWith<AppConfigEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +55,6 @@ abstract class $AppConfigEventCopyWith<$Res> {
   factory $AppConfigEventCopyWith(
           AppConfigEvent value, $Res Function(AppConfigEvent) then) =
       _$AppConfigEventCopyWithImpl<$Res, AppConfigEvent>;
-  @useResult
-  $Res call({String splashUrl});
 }
 
 /// @nodoc
@@ -73,107 +66,67 @@ class _$AppConfigEventCopyWithImpl<$Res, $Val extends AppConfigEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? splashUrl = null,
-  }) {
-    return _then(_value.copyWith(
-      splashUrl: null == splashUrl
-          ? _value.splashUrl
-          : splashUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_SplashCopyWith<$Res>
-    implements $AppConfigEventCopyWith<$Res> {
-  factory _$$_SplashCopyWith(_$_Splash value, $Res Function(_$_Splash) then) =
-      __$$_SplashCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String splashUrl});
+abstract class _$$_GetSplashCopyWith<$Res> {
+  factory _$$_GetSplashCopyWith(
+          _$_GetSplash value, $Res Function(_$_GetSplash) then) =
+      __$$_GetSplashCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SplashCopyWithImpl<$Res>
-    extends _$AppConfigEventCopyWithImpl<$Res, _$_Splash>
-    implements _$$_SplashCopyWith<$Res> {
-  __$$_SplashCopyWithImpl(_$_Splash _value, $Res Function(_$_Splash) _then)
+class __$$_GetSplashCopyWithImpl<$Res>
+    extends _$AppConfigEventCopyWithImpl<$Res, _$_GetSplash>
+    implements _$$_GetSplashCopyWith<$Res> {
+  __$$_GetSplashCopyWithImpl(
+      _$_GetSplash _value, $Res Function(_$_GetSplash) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? splashUrl = null,
-  }) {
-    return _then(_$_Splash(
-      null == splashUrl
-          ? _value.splashUrl
-          : splashUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$_Splash implements _Splash {
-  const _$_Splash(this.splashUrl);
-
-  @override
-  final String splashUrl;
+class _$_GetSplash implements _GetSplash {
+  const _$_GetSplash();
 
   @override
   String toString() {
-    return 'AppConfigEvent.splash(splashUrl: $splashUrl)';
+    return 'AppConfigEvent.getSplash()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Splash &&
-            (identical(other.splashUrl, splashUrl) ||
-                other.splashUrl == splashUrl));
+        (other.runtimeType == runtimeType && other is _$_GetSplash);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, splashUrl);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SplashCopyWith<_$_Splash> get copyWith =>
-      __$$_SplashCopyWithImpl<_$_Splash>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String splashUrl) splash,
+    required TResult Function() getSplash,
   }) {
-    return splash(splashUrl);
+    return getSplash();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String splashUrl)? splash,
+    TResult? Function()? getSplash,
   }) {
-    return splash?.call(splashUrl);
+    return getSplash?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String splashUrl)? splash,
+    TResult Function()? getSplash,
     required TResult orElse(),
   }) {
-    if (splash != null) {
-      return splash(splashUrl);
+    if (getSplash != null) {
+      return getSplash();
     }
     return orElse();
   }
@@ -181,41 +134,34 @@ class _$_Splash implements _Splash {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Splash value) splash,
+    required TResult Function(_GetSplash value) getSplash,
   }) {
-    return splash(this);
+    return getSplash(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Splash value)? splash,
+    TResult? Function(_GetSplash value)? getSplash,
   }) {
-    return splash?.call(this);
+    return getSplash?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Splash value)? splash,
+    TResult Function(_GetSplash value)? getSplash,
     required TResult orElse(),
   }) {
-    if (splash != null) {
-      return splash(this);
+    if (getSplash != null) {
+      return getSplash(this);
     }
     return orElse();
   }
 }
 
-abstract class _Splash implements AppConfigEvent {
-  const factory _Splash(final String splashUrl) = _$_Splash;
-
-  @override
-  String get splashUrl;
-  @override
-  @JsonKey(ignore: true)
-  _$$_SplashCopyWith<_$_Splash> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _GetSplash implements AppConfigEvent {
+  const factory _GetSplash() = _$_GetSplash;
 }
 
 /// @nodoc
