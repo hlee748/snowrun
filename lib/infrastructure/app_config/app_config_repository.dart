@@ -1,12 +1,9 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:snowrun/domain/app_config/app_config_failure.dart';
 import 'package:snowrun/domain/app_config/i_app_config_repository.dart';
 import 'package:snowrun/domain/app_config/model/splash_image.dart';
 import 'package:snowrun/domain/core/value_objects.dart';
-import 'package:snowrun/infrastructure/app_config/splash_image_dtos.dart';
 
 @LazySingleton(as: IAppConfigRepository)
 class AppConfigRepository implements IAppConfigRepository {

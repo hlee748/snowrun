@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:snowrun/injection.dart';
 import 'package:snowrun/presentation/navigate/i_navigate_tab_page.dart';
 import 'package:snowrun/routes/router.gr.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // Project imports:
 
@@ -55,16 +56,29 @@ class HomeState extends State<HomePage> {
       },
       child: Scaffold(
         body: SafeArea(
-          child: Container(
-            color: Colors.yellow,
-            child: Center(
-              child: TextButton(
-                onPressed: () {
-                  // appRouter.push(const SelectStorePageRoute());
-                },
-                child: const Text("HomePage"),
+          child: Stack(
+            children: [
+              Center(
+                child: TextButton(
+                  onPressed: () {
+                    // appRouter.push(const SelectStorePageRoute());
+                  },
+                  child: const Text("HomePage"),
+                ),
               ),
-            ),
+              Positioned(
+                  bottom: 12,
+                  right: 12,
+                  child: IconButton(
+                    onPressed: () {
+                      appRouter.push(const RecordPageRoute());
+                    },
+                    icon: SvgPicture.asset(
+                      'assets/svgs/ski.svg',
+                    ),
+                  )
+              ),
+            ]
           ),
         ),
       ),

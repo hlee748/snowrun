@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -19,15 +20,16 @@ void main() async {
   //   },
   //       (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack),
   // );
+  await initServices();
+  // await Firebase.initializeApp();
+  runApp(const MainApp());
 
-
-  runZonedGuarded<Future<void>>(
-        () async {
-      await initServices();
-      runApp(const MainApp());
-    },
-        (error, stack) =>
-        FirebaseCrashlytics.instance.recordError(error, stack),
-  );
+  // runZonedGuarded<Future<void>>(
+  //       () async {
+  //     runApp(const MainApp());
+  //   },
+  //       (error, stack) =>
+  //       FirebaseCrashlytics.instance.recordError(error, stack),
+  // );
 
 }

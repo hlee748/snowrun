@@ -151,3 +151,4 @@ class ListVO<T> extends ValueObject<List<T>> {
 
   const ListVO._(this.value);
 }
+

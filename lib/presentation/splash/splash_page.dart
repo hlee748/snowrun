@@ -21,7 +21,7 @@ class SplashPage extends StatefulWidget {
 class SplashState extends State<SplashPage> {
   // final AnonymousBloc _anonymousBloc = getIt<AnonymousBloc>();
   final AppConfigBloc _appConfigBloc = getIt<AppConfigBloc>();
-  // final appRouter = getIt<AppRouter>();
+  final appRouter = getIt<AppRouter>();
 
   @override
   void initState() {
@@ -54,8 +54,18 @@ class SplashState extends State<SplashPage> {
                 child: AnimatedOpacity(
                   duration: const Duration(milliseconds: 1600),
                   opacity: splashUrl.isNotEmpty ? 1 : 0,
-                  child: Image.asset(
-                      state.splashUrl
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                          state.splashUrl
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          appRouter.push(const NavigatePageRoute());
+                        },
+                        child: const Text("Home 가기", style: TextStyle(color: Colors.white),),
+                      ),
+                    ]
                   ),
                 ),
               ),
