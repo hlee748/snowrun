@@ -9,6 +9,7 @@ import 'package:snowrun/application/record/record_bloc.dart';
 import 'package:snowrun/injection.dart';
 import 'package:snowrun/presentation/navigate/i_navigate_tab_page.dart';
 import 'package:snowrun/routes/router.gr.dart';
+import 'package:snowrun/utils/local_store.dart';
 import 'package:snowrun/utils/record_service.dart';
 
 // Project imports:
@@ -31,6 +32,7 @@ class RecordState extends State<RecordPage> {
   // final RecordBloc _recordBloc = getIt<RecordBloc>();
   final appRouter = getIt<AppRouter>();
   final recordService = getIt<RecordService>();
+  final localStore = getIt<LocalStore>();
 
   @override
   void initState() {
@@ -50,6 +52,7 @@ class RecordState extends State<RecordPage> {
 
   @override
   Widget build(BuildContext context) {
+    localStore.testHiveData("test");
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -62,6 +65,7 @@ class RecordState extends State<RecordPage> {
                 onPressed: () {
                   recordService.startRecording();
                   print("start 누름");
+                  print("HOHOHO start hive::: ${localStore.testHiveData("test")}");
                 },
                 icon: const Icon(Icons.arrow_forward_ios),
               ),

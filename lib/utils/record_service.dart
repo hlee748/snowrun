@@ -4,11 +4,14 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
+import 'package:snowrun/injection.dart';
+import 'package:snowrun/utils/local_store.dart';
 
-@singleton
+@Singleton()
 class RecordService {
   static const int timerDurationSecond = 2;
   final flutterBackgoundService = FlutterBackgroundService();
+
 
   initializeService() async {
     print('FBTEST ___ initializeService');
@@ -75,6 +78,8 @@ void onStart(ServiceInstance service) async {
   service.on('start').listen(
         (event) {
       print('FBTEST ___ onStart ___ listen on start');
+      // final localStore = getIt<LocalStore>();
+      // print("HOHOHO ::: ${localStore.recordBox}");
       timer ??= Timer.periodic(
           const Duration(seconds: 2),
               (timer) async {

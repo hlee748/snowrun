@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 // Package imports:
 import 'package:snowrun/injection.dart';
 import 'package:snowrun/routes/router.gr.dart';
+import 'package:snowrun/utils/local_store.dart';
 import 'package:snowrun/utils/record_service.dart';
 // import 'package:intl/date_symbol_data_local.dart';
 
@@ -26,6 +27,8 @@ Future<void> initServices() async {
 
   //hive
   await Hive.initFlutter();
+  final localStore = getIt<LocalStore>();
+  await localStore.init();
 
 
 }
