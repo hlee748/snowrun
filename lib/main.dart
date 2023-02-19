@@ -14,12 +14,6 @@ void main() async {
   //   isCrashlyticsCollectionEnabled: true,
   // );
   //
-  // runZonedGuarded<Future<void>>(
-  //       () async {
-  //     runApp(const MainApp());
-  //   },
-  //       (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack),
-  // );
   await initServices();
   // await Firebase.initializeApp();
   runApp(const MainApp());

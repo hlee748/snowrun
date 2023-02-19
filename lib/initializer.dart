@@ -1,15 +1,11 @@
 // Flutter imports:
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 // Package imports:
-import 'package:firebase_core/firebase_core.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:snowrun/injection.dart';
 import 'package:snowrun/routes/router.gr.dart';
-import 'firebase_options.dart';
+import 'package:snowrun/utils/record_service.dart';
 // import 'package:intl/date_symbol_data_local.dart';
 
 // import 'infrastructure/api/api_provider.dart';
@@ -24,6 +20,13 @@ Future<void> initServices() async {
 
   // autoRoute
   getIt.registerSingleton<AppRouter>(AppRouter());
+
+  //background service
+  await getIt<RecordService>().initializeService();
+
+  //hive
+  await Hive.initFlutter();
+
 
 }
 

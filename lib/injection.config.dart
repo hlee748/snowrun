@@ -7,7 +7,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:snowrun/application/app_config/app_config_bloc.dart' as _i9;
+import 'package:snowrun/application/app_config/app_config_bloc.dart' as _i10;
 import 'package:snowrun/application/bottom_navigation/bottom_navigation_bloc.dart'
     as _i3;
 import 'package:snowrun/application/record/record_bloc.dart' as _i8;
@@ -16,6 +16,7 @@ import 'package:snowrun/domain/record/i_record_repository.dart' as _i6;
 import 'package:snowrun/infrastructure/app_config/app_config_repository.dart'
     as _i5;
 import 'package:snowrun/infrastructure/record/record_repository.dart' as _i7;
+import 'package:snowrun/utils/record_service.dart' as _i9;
 
 /// ignore_for_file: unnecessary_lambdas
 /// ignore_for_file: lines_longer_than_80_chars
@@ -34,7 +35,8 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i4.IAppConfigRepository>(() => _i5.AppConfigRepository());
   gh.lazySingleton<_i6.IRecordRepository>(() => _i7.RecordRepository());
   gh.factory<_i8.RecordBloc>(() => _i8.RecordBloc());
-  gh.factory<_i9.AppConfigBloc>(
-      () => _i9.AppConfigBloc(gh<_i4.IAppConfigRepository>()));
+  gh.singleton<_i9.RecordService>(_i9.RecordService());
+  gh.factory<_i10.AppConfigBloc>(
+      () => _i10.AppConfigBloc(gh<_i4.IAppConfigRepository>()));
   return getIt;
 }

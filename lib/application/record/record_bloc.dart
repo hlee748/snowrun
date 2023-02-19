@@ -40,37 +40,37 @@ class RecordBloc extends Bloc<RecordEvent, RecordingState> {
     // });
 
     on<_UpdateRecord>((event, emit) async {
-      emit(state.copyWith(
-        recordingType: RecordingType.recording,
-        record: event.record,
-      ));
+      // emit(state.copyWith(
+      //   recordingType: RecordingType.recording,
+      //   record: event.record,
+      // ));
     });
 
     on<_StartRiding>((event, emit) {
-      stopRiding();
-      _timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
-        final value = await _determinPosition();
-        add(RecordEvent.updateRecord(
-          Record(
-              startedAt: DateVO(DateTime.now()),
-              longitude: DoubleVO(value.longitude),
-              latitude: DoubleVO(value.latitude)),
-        ));
-      });
+      // stopRiding();
+      // _timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
+      //   final value = await _determinPosition();
+      //   add(RecordEvent.updateRecord(
+      //     Record(
+      //         startedAt: DateVO(DateTime.now()),
+      //         longitude: DoubleVO(value.longitude),
+      //         latitude: DoubleVO(value.latitude)),
+      //   ));
+      // });
     });
 
     on<_PauseRiding>((event, emit) {
-      stopRiding();
-      emit(state.copyWith(
-        recordingType: RecordingType.pause,
-      ));
+      // stopRiding();
+      // emit(state.copyWith(
+      //   recordingType: RecordingType.pause,
+      // ));
     });
 
     on<_StopRiding>((event, emit) {
-      stopRiding();
-      emit(state.copyWith(
-        recordingType: RecordingType.completed,
-      ));
+      // stopRiding();
+      // emit(state.copyWith(
+      //   recordingType: RecordingType.completed,
+      // ));
     });
   }
 
