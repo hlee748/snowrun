@@ -4,7 +4,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
-import 'package:snowrun/injection.dart';
+import 'package:snowrun/injection/injection.dart';
 import 'package:snowrun/infrastructure/hive/hive_provider.dart';
 
 @Singleton()

@@ -48,4 +48,8 @@ class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.emptyEnum({
     required T failedValue,
   }) = EmptyEnum<T>;
+
+  const factory ValueFailure.invalidVersion({
+    required T failedValue,
+  }) = InvalidVersion<T>;
 }

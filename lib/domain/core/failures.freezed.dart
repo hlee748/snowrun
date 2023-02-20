@@ -30,6 +30,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +45,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +60,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +76,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +91,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,6 +106,7 @@ mixin _$ValueFailure<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -231,6 +237,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return exceedingLength(failedValue, max);
   }
@@ -248,6 +255,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return exceedingLength?.call(failedValue, max);
   }
@@ -265,6 +273,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -286,6 +295,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return exceedingLength(this);
   }
@@ -303,6 +313,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return exceedingLength?.call(this);
   }
@@ -320,6 +331,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -420,6 +432,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return empty(failedValue);
   }
@@ -437,6 +450,7 @@ class _$Empty<T> implements Empty<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return empty?.call(failedValue);
   }
@@ -454,6 +468,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -475,6 +490,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return empty(this);
   }
@@ -492,6 +508,7 @@ class _$Empty<T> implements Empty<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return empty?.call(this);
   }
@@ -509,6 +526,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -608,6 +626,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return multiline(failedValue);
   }
@@ -625,6 +644,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return multiline?.call(failedValue);
   }
@@ -642,6 +662,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (multiline != null) {
@@ -663,6 +684,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return multiline(this);
   }
@@ -680,6 +702,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return multiline?.call(this);
   }
@@ -697,6 +720,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (multiline != null) {
@@ -804,6 +828,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return listTooLong(failedValue, max);
   }
@@ -821,6 +846,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return listTooLong?.call(failedValue, max);
   }
@@ -838,6 +864,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (listTooLong != null) {
@@ -859,6 +886,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return listTooLong(this);
   }
@@ -876,6 +904,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return listTooLong?.call(this);
   }
@@ -893,6 +922,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (listTooLong != null) {
@@ -995,6 +1025,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return invalidEmail(failedValue);
   }
@@ -1012,6 +1043,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -1029,6 +1061,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -1050,6 +1083,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return invalidEmail(this);
   }
@@ -1067,6 +1101,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return invalidEmail?.call(this);
   }
@@ -1084,6 +1119,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -1184,6 +1220,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return shortPassword(failedValue);
   }
@@ -1201,6 +1238,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -1218,6 +1256,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -1239,6 +1278,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return shortPassword(this);
   }
@@ -1256,6 +1296,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return shortPassword?.call(this);
   }
@@ -1273,6 +1314,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -1374,6 +1416,7 @@ class _$InvalidNickname<T> implements InvalidNickname<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return invalidNickname(failedValue);
   }
@@ -1391,6 +1434,7 @@ class _$InvalidNickname<T> implements InvalidNickname<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return invalidNickname?.call(failedValue);
   }
@@ -1408,6 +1452,7 @@ class _$InvalidNickname<T> implements InvalidNickname<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (invalidNickname != null) {
@@ -1429,6 +1474,7 @@ class _$InvalidNickname<T> implements InvalidNickname<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return invalidNickname(this);
   }
@@ -1446,6 +1492,7 @@ class _$InvalidNickname<T> implements InvalidNickname<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return invalidNickname?.call(this);
   }
@@ -1463,6 +1510,7 @@ class _$InvalidNickname<T> implements InvalidNickname<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (invalidNickname != null) {
@@ -1563,6 +1611,7 @@ class _$NegativeInt<T> implements NegativeInt<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return negativeInt(failedValue);
   }
@@ -1580,6 +1629,7 @@ class _$NegativeInt<T> implements NegativeInt<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return negativeInt?.call(failedValue);
   }
@@ -1597,6 +1647,7 @@ class _$NegativeInt<T> implements NegativeInt<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (negativeInt != null) {
@@ -1618,6 +1669,7 @@ class _$NegativeInt<T> implements NegativeInt<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return negativeInt(this);
   }
@@ -1635,6 +1687,7 @@ class _$NegativeInt<T> implements NegativeInt<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return negativeInt?.call(this);
   }
@@ -1652,6 +1705,7 @@ class _$NegativeInt<T> implements NegativeInt<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (negativeInt != null) {
@@ -1769,6 +1823,7 @@ class _$InvalidRatingRange<T> implements InvalidRatingRange<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return invalidRange(failedValue, min, max);
   }
@@ -1786,6 +1841,7 @@ class _$InvalidRatingRange<T> implements InvalidRatingRange<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return invalidRange?.call(failedValue, min, max);
   }
@@ -1803,6 +1859,7 @@ class _$InvalidRatingRange<T> implements InvalidRatingRange<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (invalidRange != null) {
@@ -1824,6 +1881,7 @@ class _$InvalidRatingRange<T> implements InvalidRatingRange<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return invalidRange(this);
   }
@@ -1841,6 +1899,7 @@ class _$InvalidRatingRange<T> implements InvalidRatingRange<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return invalidRange?.call(this);
   }
@@ -1858,6 +1917,7 @@ class _$InvalidRatingRange<T> implements InvalidRatingRange<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (invalidRange != null) {
@@ -1962,6 +2022,7 @@ class _$EmptyEnum<T> implements EmptyEnum<T> {
     required TResult Function(T failedValue, double min, double max)
         invalidRange,
     required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
   }) {
     return emptyEnum(failedValue);
   }
@@ -1979,6 +2040,7 @@ class _$EmptyEnum<T> implements EmptyEnum<T> {
     TResult? Function(T failedValue)? negativeInt,
     TResult? Function(T failedValue, double min, double max)? invalidRange,
     TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
   }) {
     return emptyEnum?.call(failedValue);
   }
@@ -1996,6 +2058,7 @@ class _$EmptyEnum<T> implements EmptyEnum<T> {
     TResult Function(T failedValue)? negativeInt,
     TResult Function(T failedValue, double min, double max)? invalidRange,
     TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
     required TResult orElse(),
   }) {
     if (emptyEnum != null) {
@@ -2017,6 +2080,7 @@ class _$EmptyEnum<T> implements EmptyEnum<T> {
     required TResult Function(NegativeInt<T> value) negativeInt,
     required TResult Function(InvalidRatingRange<T> value) invalidRange,
     required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
   }) {
     return emptyEnum(this);
   }
@@ -2034,6 +2098,7 @@ class _$EmptyEnum<T> implements EmptyEnum<T> {
     TResult? Function(NegativeInt<T> value)? negativeInt,
     TResult? Function(InvalidRatingRange<T> value)? invalidRange,
     TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
   }) {
     return emptyEnum?.call(this);
   }
@@ -2051,6 +2116,7 @@ class _$EmptyEnum<T> implements EmptyEnum<T> {
     TResult Function(NegativeInt<T> value)? negativeInt,
     TResult Function(InvalidRatingRange<T> value)? invalidRange,
     TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
     required TResult orElse(),
   }) {
     if (emptyEnum != null) {
@@ -2068,5 +2134,200 @@ abstract class EmptyEnum<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   _$$EmptyEnumCopyWith<T, _$EmptyEnum<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidVersionCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$InvalidVersionCopyWith(
+          _$InvalidVersion<T> value, $Res Function(_$InvalidVersion<T>) then) =
+      __$$InvalidVersionCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$InvalidVersionCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidVersion<T>>
+    implements _$$InvalidVersionCopyWith<T, $Res> {
+  __$$InvalidVersionCopyWithImpl(
+      _$InvalidVersion<T> _value, $Res Function(_$InvalidVersion<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$InvalidVersion<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidVersion<T> implements InvalidVersion<T> {
+  const _$InvalidVersion({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidVersion(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidVersion<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidVersionCopyWith<T, _$InvalidVersion<T>> get copyWith =>
+      __$$InvalidVersionCopyWithImpl<T, _$InvalidVersion<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue, int max) listTooLong,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidNickname,
+    required TResult Function(T failedValue) negativeInt,
+    required TResult Function(T failedValue, double min, double max)
+        invalidRange,
+    required TResult Function(T failedValue) emptyEnum,
+    required TResult Function(T failedValue) invalidVersion,
+  }) {
+    return invalidVersion(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? multiline,
+    TResult? Function(T failedValue, int max)? listTooLong,
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? invalidNickname,
+    TResult? Function(T failedValue)? negativeInt,
+    TResult? Function(T failedValue, double min, double max)? invalidRange,
+    TResult? Function(T failedValue)? emptyEnum,
+    TResult? Function(T failedValue)? invalidVersion,
+  }) {
+    return invalidVersion?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue, int max)? listTooLong,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidNickname,
+    TResult Function(T failedValue)? negativeInt,
+    TResult Function(T failedValue, double min, double max)? invalidRange,
+    TResult Function(T failedValue)? emptyEnum,
+    TResult Function(T failedValue)? invalidVersion,
+    required TResult orElse(),
+  }) {
+    if (invalidVersion != null) {
+      return invalidVersion(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(Multiline<T> value) multiline,
+    required TResult Function(ListTooLong<T> value) listTooLong,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(InvalidNickname<T> value) invalidNickname,
+    required TResult Function(NegativeInt<T> value) negativeInt,
+    required TResult Function(InvalidRatingRange<T> value) invalidRange,
+    required TResult Function(EmptyEnum<T> value) emptyEnum,
+    required TResult Function(InvalidVersion<T> value) invalidVersion,
+  }) {
+    return invalidVersion(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(Multiline<T> value)? multiline,
+    TResult? Function(ListTooLong<T> value)? listTooLong,
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(InvalidNickname<T> value)? invalidNickname,
+    TResult? Function(NegativeInt<T> value)? negativeInt,
+    TResult? Function(InvalidRatingRange<T> value)? invalidRange,
+    TResult? Function(EmptyEnum<T> value)? emptyEnum,
+    TResult? Function(InvalidVersion<T> value)? invalidVersion,
+  }) {
+    return invalidVersion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(InvalidNickname<T> value)? invalidNickname,
+    TResult Function(NegativeInt<T> value)? negativeInt,
+    TResult Function(InvalidRatingRange<T> value)? invalidRange,
+    TResult Function(EmptyEnum<T> value)? emptyEnum,
+    TResult Function(InvalidVersion<T> value)? invalidVersion,
+    required TResult orElse(),
+  }) {
+    if (invalidVersion != null) {
+      return invalidVersion(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidVersion<T> implements ValueFailure<T> {
+  const factory InvalidVersion({required final T failedValue}) =
+      _$InvalidVersion<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$InvalidVersionCopyWith<T, _$InvalidVersion<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,8 +1,10 @@
 // Package imports:
 import 'package:dartz/dartz.dart';
+import 'package:snowrun/domain/app-info/model/app_notice_button_info.dart';
 import 'package:snowrun/domain/core/erros.dart';
 import 'package:snowrun/domain/core/failures.dart';
 import 'package:uuid/uuid.dart';
+import 'package:version/version.dart';
 
 // Project imports:
 
@@ -113,6 +115,23 @@ class DateVO extends ValueObject<DateTime> {
   const DateVO._(this.value);
 }
 
+class VersionVO extends ValueObject<Version> {
+  @override
+  final Either<ValueFailure<Version>, Version> value;
+
+  factory VersionVO(String input) {
+    if (input.isNotEmpty) {
+      return VersionVO._(right(Version.parse(input)));
+    } else {
+      return VersionVO._(right((Version.parse("0.0.0"))));
+    }
+  }
+
+  factory VersionVO.empty() => VersionVO("");
+
+  const VersionVO._(this.value);
+}
+
 class IntVO extends ValueObject<int> {
   @override
   final Either<ValueFailure<int>, int> value;
@@ -150,5 +169,18 @@ class ListVO<T> extends ValueObject<List<T>> {
   factory ListVO.empty() => ListVO([]);
 
   const ListVO._(this.value);
+}
+
+class AppNoticeButtonInfoVO extends ValueObject<AppNoticeButtonInfo?> {
+  @override
+  final Either<ValueFailure<AppNoticeButtonInfo?>, AppNoticeButtonInfo?> value;
+
+  factory AppNoticeButtonInfoVO(AppNoticeButtonInfo? input) {
+    return AppNoticeButtonInfoVO._(right(input));
+  }
+
+  factory AppNoticeButtonInfoVO.empty() => AppNoticeButtonInfoVO(AppNoticeButtonInfo.empty());
+
+  const AppNoticeButtonInfoVO._(this.value);
 }
 

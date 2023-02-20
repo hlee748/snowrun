@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snowrun/application/record/record_bloc.dart';
 
 // Package imports:
-import 'package:snowrun/injection.dart';
+import 'package:snowrun/injection/injection.dart';
 import 'package:snowrun/presentation/navigate/i_navigate_tab_page.dart';
 import 'package:snowrun/routes/router.gr.dart';
 import 'package:snowrun/infrastructure/hive/hive_provider.dart';

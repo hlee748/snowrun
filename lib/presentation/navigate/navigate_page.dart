@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snowrun/application/bottom_navigation/bottom_navigation_bloc.dart';
-import 'package:snowrun/injection.dart';
+import 'package:snowrun/injection/injection.dart';
 import 'package:snowrun/presentation/history/history_page.dart';
 import 'package:snowrun/presentation/home/home_page.dart';
 import 'package:snowrun/presentation/navigate/i_navigate_tab_page.dart';

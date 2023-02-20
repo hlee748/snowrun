@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:auto_route/auto_route.dart';
+import 'package:snowrun/presentation/app-notice/app_notice_page.dart';
 import 'package:snowrun/presentation/history/history_page.dart';
 import 'package:snowrun/presentation/home/home_page.dart';
 import 'package:snowrun/presentation/navigate/navigate_page.dart';
@@ -40,6 +41,12 @@ import 'package:snowrun/presentation/splash/splash_page.dart';
       path: '/home',
       // fullscreenDialog: true,
       transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+    ),
+    CustomRoute(
+      page: AppNoticePage,
+      path: '/notice',
+      // fullscreenDialog: true,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
       page: HistoryPage,

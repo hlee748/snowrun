@@ -2,7 +2,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:snowrun/injection.config.dart';
+import 'package:snowrun/injection/injection.config.dart';
 
 // Project imports:
 

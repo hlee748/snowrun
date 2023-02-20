@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:snowrun/injection.dart';
+import 'package:snowrun/injection/injection.dart';
 import 'package:snowrun/presentation/navigate/i_navigate_tab_page.dart';
 import 'package:snowrun/routes/router.gr.dart';
 import 'package:flutter_svg/flutter_svg.dart';
