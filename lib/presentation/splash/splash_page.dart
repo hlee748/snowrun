@@ -74,7 +74,7 @@ class SplashState extends State<SplashPage> {
       child: BlocBuilder<AppConfigBloc, AppConfigState>(
         builder: (context, state){
           return BlocBuilder<AppInfoBloc, AppInfoState>(
-              builder: (context, AppInfoState){
+              builder: (context, appInfoState){
                 final splashUrl = state.splashUrl;
                 return SafeArea(
                   child:
