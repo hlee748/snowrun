@@ -9,7 +9,7 @@ import 'package:snowrun/application/record/record_bloc.dart';
 import 'package:snowrun/injection.dart';
 import 'package:snowrun/presentation/navigate/i_navigate_tab_page.dart';
 import 'package:snowrun/routes/router.gr.dart';
-import 'package:snowrun/utils/local_store.dart';
+import 'package:snowrun/infrastructure/hive/hive_provider.dart';
 import 'package:snowrun/utils/record_service.dart';
 
 // Project imports:
@@ -31,7 +31,7 @@ class RecordPage extends StatefulWidget implements INavigateTabPage {
 class RecordState extends State<RecordPage> {
   // final RecordBloc _recordBloc = getIt<RecordBloc>();
   final appRouter = getIt<AppRouter>();
-  final recordService = getIt<RecordService>();
+  final recordService = getIt<HiveProvider>();
   final localStore = getIt<LocalStore>();
 
   @override

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "289365002732",
+    "project_id": "snowrun-app",
+    "storage_bucket": "snowrun-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289365002732:android:3ab12955abff10e1dfd8c9",
+        "android_client_info": {
+          "package_name": "com.smallestapp.snowrun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289365002732-g50jh2lfu5uarho0gd8204ltkpqekejq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5rjc0R7hqR4CNAXJIfLWwByhYjafdKeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289365002732-g50jh2lfu5uarho0gd8204ltkpqekejq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

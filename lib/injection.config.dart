@@ -16,7 +16,7 @@ import 'package:snowrun/domain/record/i_record_repository.dart' as _i6;
 import 'package:snowrun/infrastructure/app_config/app_config_repository.dart'
     as _i5;
 import 'package:snowrun/infrastructure/record/record_repository.dart' as _i7;
-import 'package:snowrun/utils/local_store.dart' as _i8;
+import 'package:snowrun/infrastructure/hive/hive_provider.dart' as _i8;
 import 'package:snowrun/utils/record_service.dart' as _i10;
 
 /// ignore_for_file: unnecessary_lambdas
@@ -37,7 +37,7 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i6.IRecordRepository>(() => _i7.RecordRepository());
   gh.singleton<_i8.LocalStore>(_i8.LocalStore());
   gh.factory<_i9.RecordBloc>(() => _i9.RecordBloc());
-  gh.singleton<_i10.RecordService>(_i10.RecordService());
+  gh.singleton<_i10.HiveProvider>(_i10.HiveProvider());
   gh.factory<_i11.AppConfigBloc>(
       () => _i11.AppConfigBloc(gh<_i4.IAppConfigRepository>()));
   return getIt;

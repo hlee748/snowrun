@@ -5,10 +5,10 @@ import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:snowrun/injection.dart';
-import 'package:snowrun/utils/local_store.dart';
+import 'package:snowrun/infrastructure/hive/hive_provider.dart';
 
 @Singleton()
-class RecordService {
+class HiveProvider {
   static const int timerDurationSecond = 2;
   final flutterBackgoundService = FlutterBackgroundService();
 
