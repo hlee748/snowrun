@@ -8,7 +8,6 @@ import 'package:snowrun/domain/app-info/model/app_notice.dart';
 import 'package:snowrun/injection/injection.dart';
 import 'package:snowrun/routes/router.gr.dart';
 
-
 // Project imports:
 
 class AppNoticePage extends StatefulWidget {
@@ -23,8 +22,6 @@ class AppNoticePage extends StatefulWidget {
 class AppNoticeState extends State<AppNoticePage> {
   // final AppInfoBloc _appInfoBloc = getIt<AppInfoBloc>();
   final appRouter = getIt<AppRouter>();
-
-
 
   @override
   void initState() {
@@ -42,32 +39,58 @@ class AppNoticeState extends State<AppNoticePage> {
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const Text("App Info"),
-            // ExtendedImage.network(appNotice.imageUrl.getOrCrash(), cache: false,),
-            Text(appNotice.title.getOrCrash()),
-            Text(appNotice.description.getOrCrash()),
-            Text("${appNotice.isForcedFinish.getOrCrash()}"),
-            Text("${appNotice.negativeButton.getOrCrash()?.title.getOrCrash()}"),
-            Text("${appNotice.negativeButton.getOrCrash()?.deeplink.getOrCrash()}"),
-            Text("${appNotice.positiveButton.getOrCrash()?.title.getOrCrash()}"),
-            Text("${appNotice.positiveButton.getOrCrash()?.deeplink.getOrCrash()}"),
-            TextButton(
-              onPressed: () {
-                _clickButton(isForcedFinish: appNotice.isForcedFinish.getOrCrash(), deeplink: appNotice.negativeButton.getOrCrash()?.deeplink.getOrCrash());
-              },
-              child: Text("${appNotice.negativeButton.getOrCrash()?.title.getOrCrash()}"),
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              const Text(
+                "App Info",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 24,),
+              // ExtendedImage.network(appNotice.imageUrl.getOrCrash(), cache: false,),
+              Text(appNotice.title.getOrCrash()),
+              Text(appNotice.description.getOrCrash()),
+              Text("${appNotice.isForcedFinish.getOrCrash()}"),
+              Text(
+                  "${appNotice.negativeButton.getOrCrash()?.title.getOrCrash()}"),
+              Text(
+                  "${appNotice.negativeButton.getOrCrash()?.deeplink.getOrCrash()}"),
+              Text(
+                  "${appNotice.positiveButton.getOrCrash()?.title.getOrCrash()}"),
+              Text(
+                  "${appNotice.positiveButton.getOrCrash()?.deeplink.getOrCrash()}"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      _clickButton(
+                          isForcedFinish: appNotice.isForcedFinish.getOrCrash(),
+                          deeplink: appNotice.negativeButton
+                              .getOrCrash()
+                              ?.deeplink
+                              .getOrCrash());
+                    },
+                    child: Text(
+                        "${appNotice.negativeButton.getOrCrash()?.title.getOrCrash()}"),
+                  ),
 
-            TextButton(
-              onPressed: () {
-                _clickButton(isForcedFinish: appNotice.isForcedFinish.getOrCrash(), deeplink: appNotice.positiveButton.getOrCrash()?.deeplink.getOrCrash());
-              },
-              child: Text("${appNotice.positiveButton.getOrCrash()?.title.getOrCrash()}"),
-            ),
-
-          ],
+                  TextButton(
+                    onPressed: () {
+                      _clickButton(
+                          isForcedFinish: appNotice.isForcedFinish.getOrCrash(),
+                          deeplink: appNotice.positiveButton
+                              .getOrCrash()
+                              ?.deeplink
+                              .getOrCrash());
+                    },
+                    child: Text(
+                        "${appNotice.positiveButton.getOrCrash()?.title.getOrCrash()}"),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -107,7 +130,7 @@ class AppNoticeState extends State<AppNoticePage> {
     // );
   }
 
-  _clickButton({bool? isForcedFinish=false, String? deeplink}) {
+  _clickButton({bool? isForcedFinish = false, String? deeplink}) {
     if (isForcedFinish == true) {
       if (Platform.isAndroid) {
         SystemNavigator.pop();

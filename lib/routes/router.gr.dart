@@ -18,10 +18,10 @@ import '../domain/app-info/model/app_notice.dart' as _i10;
 import '../presentation/app-notice/app_notice_page.dart' as _i4;
 import '../presentation/history/history_page.dart' as _i5;
 import '../presentation/home/home_page.dart' as _i3;
+import '../presentation/landing/landing_page.dart' as _i1;
 import '../presentation/navigate/navigate_page.dart' as _i2;
 import '../presentation/record/record_page.dart' as _i7;
 import '../presentation/setting/setting_page.dart' as _i6;
-import '../presentation/splash/splash_page.dart' as _i1;
 
 class AppRouter extends _i8.RootStackRouter {
   AppRouter([_i9.GlobalKey<_i9.NavigatorState>? navigatorKey])
@@ -29,10 +29,10 @@ class AppRouter extends _i8.RootStackRouter {
 
   @override
   final Map<String, _i8.PageFactory> pagesMap = {
-    SplashPageRoute.name: (routeData) {
+    LandingPageRoute.name: (routeData) {
       return _i8.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i1.SplashPage(),
+        child: const _i1.LandingPage(),
         opaque: true,
         barrierDismissible: false,
       );
@@ -102,12 +102,12 @@ class AppRouter extends _i8.RootStackRouter {
         _i8.RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: '/splash',
+          redirectTo: '/landing',
           fullMatch: true,
         ),
         _i8.RouteConfig(
-          SplashPageRoute.name,
-          path: '/splash',
+          LandingPageRoute.name,
+          path: '/landing',
         ),
         _i8.RouteConfig(
           NavigatePageRoute.name,
@@ -137,15 +137,15 @@ class AppRouter extends _i8.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.SplashPage]
-class SplashPageRoute extends _i8.PageRouteInfo<void> {
-  const SplashPageRoute()
+/// [_i1.LandingPage]
+class LandingPageRoute extends _i8.PageRouteInfo<void> {
+  const LandingPageRoute()
       : super(
-          SplashPageRoute.name,
-          path: '/splash',
+          LandingPageRoute.name,
+          path: '/landing',
         );
 
-  static const String name = 'SplashPageRoute';
+  static const String name = 'LandingPageRoute';
 }
 
 /// generated route for

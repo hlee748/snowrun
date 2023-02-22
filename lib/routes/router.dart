@@ -3,10 +3,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:snowrun/presentation/app-notice/app_notice_page.dart';
 import 'package:snowrun/presentation/history/history_page.dart';
 import 'package:snowrun/presentation/home/home_page.dart';
+import 'package:snowrun/presentation/landing/landing_page.dart';
 import 'package:snowrun/presentation/navigate/navigate_page.dart';
 import 'package:snowrun/presentation/record/record_page.dart';
 import 'package:snowrun/presentation/setting/setting_page.dart';
-import 'package:snowrun/presentation/splash/splash_page.dart';
 
 // Project imports:
 
@@ -14,9 +14,9 @@ import 'package:snowrun/presentation/splash/splash_page.dart';
   // generateNavigationHelperExtension: true,
   routes: <AutoRoute>[
     AutoRoute(
-      page: SplashPage,
+      page: LandingPage,
       initial: true,
-      path: '/splash',
+      path: '/landing',
     ),
     // CustomRoute(
     //   page: SelectStorePage,
