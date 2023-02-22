@@ -54,16 +54,14 @@ class SettingState extends State<SettingPage> {
         return Future.value(false);
       },
       child: Scaffold(
-        body: SafeArea(
-          child: Container(
-            color: Colors.green,
-            child: Center(
-              child: TextButton(
-                onPressed: () {
-                  // appRouter.push(const SelectStorePageRoute());
-                },
-                child: const Text("SettingPage"),
-              ),
+        body: Container(
+          color: Colors.green,
+          child: Center(
+            child: TextButton(
+              onPressed: () {
+                // appRouter.push(const SelectStorePageRoute());
+              },
+              child: const Text("SettingPage"),
             ),
           ),
         ),

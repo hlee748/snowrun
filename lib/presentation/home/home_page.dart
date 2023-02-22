@@ -41,45 +41,35 @@ class HomeState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return WillPopScope(
-      onWillPop: () {
-        // onlySearchMode 일 경우 바로 페이지 종료
-        // if (widget.mode == SearchPageMode.onlySearch) return Future.value(true);
-        //
-        // // onlySearchMode 일 경우 바로 페이지 종료
-        // if (isSearching == true) {
-        //   cancelSearch();
-        //   return Future.value(false);
-        // }
-        // return Future.value(true);
-        return Future.value(false);
-      },
-      child: Scaffold(
-        body: SafeArea(
-          child: Stack(
-            children: [
-              Center(
-                child: TextButton(
-                  onPressed: () {
-                    // appRouter.push(const SelectStorePageRoute());
-                  },
-                  child: const Text("HomePage"),
-                ),
-              ),
-              Positioned(
-                  bottom: 12,
-                  right: 12,
-                  child: IconButton(
-                    onPressed: () {
-                      appRouter.push(const RecordPageRoute());
-                    },
-                    icon: SvgPicture.asset(
-                      'assets/svgs/ski.svg',
-                    ),
-                  )
-              ),
-            ]
-          ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            color: Colors.yellow,
+          )
+          // Align(
+          //   alignment: Alignment.bottomCenter,
+          //   child: IconButton(
+          //     onPressed: () {
+          //       appRouter.push(const RecordPageRoute());
+          //     },
+          //     icon: Image.asset(
+          //       'assets/pngs/record.png',
+          //       scale: 50.0,
+          //     ),
+          //   ),
+          // ),
+        ]
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        onPressed: () {
+          appRouter.push(const RecordPageRoute());
+        },
+        child: Image.asset(
+          'assets/pngs/record.png',
         ),
       ),
     );

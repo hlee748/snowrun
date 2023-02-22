@@ -42,7 +42,7 @@ class NavigateState extends State<NavigatePage> {
     super.initState();
     _childrenPages = [
       const HomePage(),
-      const HistoryPage(),
+      // const HistoryPage(),
       const SettingPage()
     ];
 
@@ -73,19 +73,20 @@ class NavigateState extends State<NavigatePage> {
             _onItemTapped(state.currentPosition);
           },
           child: Scaffold(
-            body: Column(
-              children: [
-                Expanded(
-                  child: Center(
+            body: SafeArea(
+              child: Column(
+                children: [
+                  Expanded(
                     child: PageView(
                       controller: _pageController,
                       physics: const NeverScrollableScrollPhysics(),
                       children: _childrenPages,
                     ),
                   ),
-                ),
-                bottomNavigationBar,
-              ],
+                  // Expanded(child: Container(color: Colors.pink,)),
+                  bottomNavigationBar,
+                ],
+              ),
             ),
           ),
         ),
@@ -123,12 +124,12 @@ class NavigateState extends State<NavigatePage> {
                   Icons.home,
                 ),
               ),
-              BottomNavigationBarItem(
-                label: 'History',
-                icon: Icon(
-                  Icons.history,
-                ),
-              ),
+              // BottomNavigationBarItem(
+              //   label: 'History',
+              //   icon: Icon(
+              //     Icons.history,
+              //   ),
+              // ),
               BottomNavigationBarItem(
                 label: 'Setting',
                 icon: Icon(Icons.settings),
