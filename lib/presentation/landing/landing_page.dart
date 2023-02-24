@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snowrun/application/app-info/app_info_bloc.dart';
 import 'package:snowrun/application/landing/landing_bloc.dart';
@@ -23,10 +24,18 @@ class LandingPage extends StatefulWidget {
   SplashState createState() => SplashState();
 }
 
-class SplashState extends State<LandingPage> {
+class SplashState extends State<LandingPage> with TickerProviderStateMixin{
   final _landingBloc = getIt<LandingBloc>();
   final _appRouter = getIt<AppRouter>();
   final _appInfoBloc = getIt<AppInfoBloc>();
+
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  final Tween<double> turnsTween = Tween<double>(
+    begin: 1,
+    end: 0,
+  );
 
   @override
   void initState() {
@@ -46,6 +55,16 @@ class SplashState extends State<LandingPage> {
                   title: StringVO("버튼버튼2"), deeplink: StringVO("딥링크딥링크"))))));
     };
 
+    _controller = AnimationController(
+        vsync: this,
+        duration: const Duration(seconds: 10)
+    );
+    _animation = CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeIn
+    );
+    _controller.repeat();
+
     _appInfoBloc.onShowAppNoticePage = (AppNotice appNotice) {
       _appRouter.push(AppNoticePageRoute(appNotice: appNotice));
     };
@@ -53,6 +72,7 @@ class SplashState extends State<LandingPage> {
 
   @override
   void dispose() {
+    _controller.dispose();
     super.dispose();
   }
 
@@ -97,11 +117,18 @@ class SplashState extends State<LandingPage> {
                             ),
                             textAlign: TextAlign.center,
                           ),
-                          Image.asset(getIt<LandingBloc>().state.imageUrl),
+                          const SizedBox(height: 48),
+                          RotationTransition(
+                            turns: turnsTween.animate(_controller),
+                            child: Image.asset(getIt<LandingBloc>().state.imageUrl,
+                            width: 200,
+                            height: 200,),
+                          ),
                           // Text(state.title),
                           // Image.asset(
                           //     state.imageUrl
                           // ),
+                          const SizedBox(height: 48),
                           TextButton(
                             onPressed: () {
                               _appRouter.push(const NavigatePageRoute());

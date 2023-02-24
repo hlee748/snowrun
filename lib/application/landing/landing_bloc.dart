@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:snowrun/application/default_status.dart';
@@ -12,6 +13,9 @@ part 'landing_bloc.freezed.dart';
 @injectable
 class LandingBloc extends Bloc<LandingEvent, LandingState> {
   final ILandingRepository _landingRepository;
+
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
   LandingBloc(this._landingRepository) : super(LandingState.initial()) {
     print("HOHOHO ::: landing ::: 나와라");
@@ -32,5 +36,7 @@ class LandingBloc extends Bloc<LandingEvent, LandingState> {
         ),
       );
     });
+
   }
+
 }

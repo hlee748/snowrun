@@ -11,6 +11,6 @@ class LandingState with _$LandingState {
   factory LandingState.initial() => const LandingState(
     status: DefaultStatus.initial,
     title: "SNOW\nRUN",
-    imageUrl: "assets/pngs/snow_ski.png",
+    imageUrl: "assets/pngs/snowrun_logo.png",
   );
 }
