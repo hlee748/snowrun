@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snowrun/application/record/record_bloc.dart';
@@ -55,48 +56,61 @@ class RecordState extends State<RecordPage> {
     localStore.testHiveData("test");
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: const BoxDecoration(
-                  color: Colors.orange, shape: BoxShape.circle),
-              child: IconButton(
-                onPressed: () {
-                  recordService.startRecording();
-                  print("start 누름");
-                  print("HOHOHO start hive::: ${localStore.testHiveData("test")}");
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            IconButton(
+                onPressed: (){
+                    context.popRoute();
                 },
-                icon: const Icon(Icons.arrow_forward_ios),
+                padding: const EdgeInsets.all(18),
+                icon: const Icon(Icons.arrow_back_ios, size: 40,)),
+            Expanded(
+              child: Center(
+                child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: const BoxDecoration(
+                        color: Colors.orange, shape: BoxShape.circle),
+                    child: IconButton(
+                      onPressed: () {
+                        recordService.startRecording();
+                        print("start 누름");
+                        print("HOHOHO start hive::: ${localStore.testHiveData("test")}");
+                      },
+                      icon: const Icon(Icons.arrow_forward_ios),
+                    ),
+                  ),
+                  SizedBox(width: 12,),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: const BoxDecoration(
+                        color: Colors.orange, shape: BoxShape.circle),
+                    child: IconButton(
+                      onPressed: () {
+                        recordService.pauseRecording();
+                        print("pause 누름");
+                      },
+                      icon: const Icon(Icons.pause),
+                    ),
+                  ),
+                  SizedBox(width: 12,),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: const BoxDecoration(
+                        color: Colors.orange, shape: BoxShape.circle),
+                    child: IconButton(
+                      onPressed: () {
+                        recordService.stopRecording();
+                        print("stop 누름");
+                      },
+                      icon: const Icon(Icons.stop),
+                    ),
+                  ),
+                ]),
               ),
             ),
-            SizedBox(width: 12,),
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: const BoxDecoration(
-                  color: Colors.orange, shape: BoxShape.circle),
-              child: IconButton(
-                onPressed: () {
-                  recordService.pauseRecording();
-                  print("pause 누름");
-                },
-                icon: const Icon(Icons.pause),
-              ),
-            ),
-            SizedBox(width: 12,),
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: const BoxDecoration(
-                  color: Colors.orange, shape: BoxShape.circle),
-              child: IconButton(
-                onPressed: () {
-                  recordService.stopRecording();
-                  print("stop 누름");
-                },
-                icon: const Icon(Icons.stop),
-              ),
-            ),
-          ]),
+          ],
         ),
       ),
     );
