@@ -182,34 +182,5 @@ class SplashState extends State<LandingPage> with TickerProviderStateMixin{
             });
           },
         ));
-    // return WillPopScope(
-    //   onWillPop: () {
-    //     // onlySearchMode 일 경우 바로 페이지 종료
-    //     // if (widget.mode == SearchPageMode.onlySearch) return Future.value(true);
-    //     //
-    //     // // onlySearchMode 일 경우 바로 페이지 종료
-    //     // if (isSearching == true) {
-    //     //   cancelSearch();
-    //     //   return Future.value(false);
-    //     // }
-    //     // return Future.value(true);
-    //     return Future.value(false);
-    //   },
-    //   child: Scaffold(
-    //     body: SafeArea(
-    //       child: Container(
-    //         color: Colors.deepOrangeAccent,
-    //         child: Center(
-    //           child: TextButton(
-    //             onPressed: () {
-    //                appRouter.push(const NavigatePageRoute());
-    //             },
-    //             child: const Text("Home 가기"),
-    //           ),
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

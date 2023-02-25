@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:snowrun/domain/app-info/model/app_info.dart';
 import 'package:snowrun/domain/app-info/model/app_notice.dart';
 import 'package:snowrun/domain/app-info/model/app_notice_button_info.dart';
+import 'package:snowrun/domain/app-info/model/app_operation_url.dart';
 import 'package:snowrun/domain/app-info/model/app_version.dart';
 import 'package:snowrun/domain/core/value_objects.dart';
 
@@ -54,9 +55,9 @@ class AppNoticeDto with _$AppNoticeDto {
     @JsonKey(name: 'title') required String? title,
     @JsonKey(name: 'description') required String? description,
     @JsonKey(name: 'negativeButton')
-    required AppNoticeButtonInfoDto? negativeButton,
+        required AppNoticeButtonInfoDto? negativeButton,
     @JsonKey(name: 'positiveButton')
-    required AppNoticeButtonInfoDto? positiveButton,
+        required AppNoticeButtonInfoDto? positiveButton,
     @JsonKey(name: 'isForcedFinish') required bool? isForcedFinish,
   }) = _AppNoticeDto;
 
@@ -92,4 +93,27 @@ class AppNoticeButtonInfoDto with _$AppNoticeButtonInfoDto {
 
   factory AppNoticeButtonInfoDto.fromJson(Map<String, dynamic> json) =>
       _$AppNoticeButtonInfoDtoFromJson(json);
+}
+
+@freezed
+class AppOperationUrlDto with _$AppOperationUrlDto {
+  const AppOperationUrlDto._();
+
+  const factory AppOperationUrlDto({
+    @JsonKey(name: 'terms') required String terms,
+    @JsonKey(name: 'privacyPolicy') required String privacyPolicy,
+    @JsonKey(name: 'userLocationPolicy') required String userLocationPolicy,
+    @JsonKey(name: 'appVersion') AppVersionDto? appVersion,
+  }) = _AppOperationUrlDto;
+
+  AppOperationUrl toDomain() {
+    return AppOperationUrl(
+        terms: StringVO(terms),
+        privacyPolicy: StringVO(privacyPolicy),
+        userLocationPolicy: StringVO(userLocationPolicy),
+        appVersion: appVersion?.toDomain() ?? AppVersion.empty());
+  }
+
+  factory AppOperationUrlDto.fromJson(Map<String, dynamic> json) =>
+      _$AppOperationUrlDtoFromJson(json);
 }

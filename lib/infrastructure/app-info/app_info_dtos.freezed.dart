@@ -867,3 +867,243 @@ abstract class _AppNoticeButtonInfoDto extends AppNoticeButtonInfoDto {
   _$$_AppNoticeButtonInfoDtoCopyWith<_$_AppNoticeButtonInfoDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+AppOperationUrlDto _$AppOperationUrlDtoFromJson(Map<String, dynamic> json) {
+  return _AppOperationUrlDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AppOperationUrlDto {
+  @JsonKey(name: 'terms')
+  String get terms => throw _privateConstructorUsedError;
+  @JsonKey(name: 'privacyPolicy')
+  String get privacyPolicy => throw _privateConstructorUsedError;
+  @JsonKey(name: 'userLocationPolicy')
+  String get userLocationPolicy => throw _privateConstructorUsedError;
+  @JsonKey(name: 'appVersion')
+  AppVersionDto? get appVersion => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AppOperationUrlDtoCopyWith<AppOperationUrlDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AppOperationUrlDtoCopyWith<$Res> {
+  factory $AppOperationUrlDtoCopyWith(
+          AppOperationUrlDto value, $Res Function(AppOperationUrlDto) then) =
+      _$AppOperationUrlDtoCopyWithImpl<$Res, AppOperationUrlDto>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'terms') String terms,
+      @JsonKey(name: 'privacyPolicy') String privacyPolicy,
+      @JsonKey(name: 'userLocationPolicy') String userLocationPolicy,
+      @JsonKey(name: 'appVersion') AppVersionDto? appVersion});
+
+  $AppVersionDtoCopyWith<$Res>? get appVersion;
+}
+
+/// @nodoc
+class _$AppOperationUrlDtoCopyWithImpl<$Res, $Val extends AppOperationUrlDto>
+    implements $AppOperationUrlDtoCopyWith<$Res> {
+  _$AppOperationUrlDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? terms = null,
+    Object? privacyPolicy = null,
+    Object? userLocationPolicy = null,
+    Object? appVersion = freezed,
+  }) {
+    return _then(_value.copyWith(
+      terms: null == terms
+          ? _value.terms
+          : terms // ignore: cast_nullable_to_non_nullable
+              as String,
+      privacyPolicy: null == privacyPolicy
+          ? _value.privacyPolicy
+          : privacyPolicy // ignore: cast_nullable_to_non_nullable
+              as String,
+      userLocationPolicy: null == userLocationPolicy
+          ? _value.userLocationPolicy
+          : userLocationPolicy // ignore: cast_nullable_to_non_nullable
+              as String,
+      appVersion: freezed == appVersion
+          ? _value.appVersion
+          : appVersion // ignore: cast_nullable_to_non_nullable
+              as AppVersionDto?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppVersionDtoCopyWith<$Res>? get appVersion {
+    if (_value.appVersion == null) {
+      return null;
+    }
+
+    return $AppVersionDtoCopyWith<$Res>(_value.appVersion!, (value) {
+      return _then(_value.copyWith(appVersion: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_AppOperationUrlDtoCopyWith<$Res>
+    implements $AppOperationUrlDtoCopyWith<$Res> {
+  factory _$$_AppOperationUrlDtoCopyWith(_$_AppOperationUrlDto value,
+          $Res Function(_$_AppOperationUrlDto) then) =
+      __$$_AppOperationUrlDtoCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'terms') String terms,
+      @JsonKey(name: 'privacyPolicy') String privacyPolicy,
+      @JsonKey(name: 'userLocationPolicy') String userLocationPolicy,
+      @JsonKey(name: 'appVersion') AppVersionDto? appVersion});
+
+  @override
+  $AppVersionDtoCopyWith<$Res>? get appVersion;
+}
+
+/// @nodoc
+class __$$_AppOperationUrlDtoCopyWithImpl<$Res>
+    extends _$AppOperationUrlDtoCopyWithImpl<$Res, _$_AppOperationUrlDto>
+    implements _$$_AppOperationUrlDtoCopyWith<$Res> {
+  __$$_AppOperationUrlDtoCopyWithImpl(
+      _$_AppOperationUrlDto _value, $Res Function(_$_AppOperationUrlDto) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? terms = null,
+    Object? privacyPolicy = null,
+    Object? userLocationPolicy = null,
+    Object? appVersion = freezed,
+  }) {
+    return _then(_$_AppOperationUrlDto(
+      terms: null == terms
+          ? _value.terms
+          : terms // ignore: cast_nullable_to_non_nullable
+              as String,
+      privacyPolicy: null == privacyPolicy
+          ? _value.privacyPolicy
+          : privacyPolicy // ignore: cast_nullable_to_non_nullable
+              as String,
+      userLocationPolicy: null == userLocationPolicy
+          ? _value.userLocationPolicy
+          : userLocationPolicy // ignore: cast_nullable_to_non_nullable
+              as String,
+      appVersion: freezed == appVersion
+          ? _value.appVersion
+          : appVersion // ignore: cast_nullable_to_non_nullable
+              as AppVersionDto?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_AppOperationUrlDto extends _AppOperationUrlDto {
+  const _$_AppOperationUrlDto(
+      {@JsonKey(name: 'terms') required this.terms,
+      @JsonKey(name: 'privacyPolicy') required this.privacyPolicy,
+      @JsonKey(name: 'userLocationPolicy') required this.userLocationPolicy,
+      @JsonKey(name: 'appVersion') this.appVersion})
+      : super._();
+
+  factory _$_AppOperationUrlDto.fromJson(Map<String, dynamic> json) =>
+      _$$_AppOperationUrlDtoFromJson(json);
+
+  @override
+  @JsonKey(name: 'terms')
+  final String terms;
+  @override
+  @JsonKey(name: 'privacyPolicy')
+  final String privacyPolicy;
+  @override
+  @JsonKey(name: 'userLocationPolicy')
+  final String userLocationPolicy;
+  @override
+  @JsonKey(name: 'appVersion')
+  final AppVersionDto? appVersion;
+
+  @override
+  String toString() {
+    return 'AppOperationUrlDto(terms: $terms, privacyPolicy: $privacyPolicy, userLocationPolicy: $userLocationPolicy, appVersion: $appVersion)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AppOperationUrlDto &&
+            (identical(other.terms, terms) || other.terms == terms) &&
+            (identical(other.privacyPolicy, privacyPolicy) ||
+                other.privacyPolicy == privacyPolicy) &&
+            (identical(other.userLocationPolicy, userLocationPolicy) ||
+                other.userLocationPolicy == userLocationPolicy) &&
+            (identical(other.appVersion, appVersion) ||
+                other.appVersion == appVersion));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, terms, privacyPolicy, userLocationPolicy, appVersion);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AppOperationUrlDtoCopyWith<_$_AppOperationUrlDto> get copyWith =>
+      __$$_AppOperationUrlDtoCopyWithImpl<_$_AppOperationUrlDto>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AppOperationUrlDtoToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AppOperationUrlDto extends AppOperationUrlDto {
+  const factory _AppOperationUrlDto(
+      {@JsonKey(name: 'terms')
+          required final String terms,
+      @JsonKey(name: 'privacyPolicy')
+          required final String privacyPolicy,
+      @JsonKey(name: 'userLocationPolicy')
+          required final String userLocationPolicy,
+      @JsonKey(name: 'appVersion')
+          final AppVersionDto? appVersion}) = _$_AppOperationUrlDto;
+  const _AppOperationUrlDto._() : super._();
+
+  factory _AppOperationUrlDto.fromJson(Map<String, dynamic> json) =
+      _$_AppOperationUrlDto.fromJson;
+
+  @override
+  @JsonKey(name: 'terms')
+  String get terms;
+  @override
+  @JsonKey(name: 'privacyPolicy')
+  String get privacyPolicy;
+  @override
+  @JsonKey(name: 'userLocationPolicy')
+  String get userLocationPolicy;
+  @override
+  @JsonKey(name: 'appVersion')
+  AppVersionDto? get appVersion;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AppOperationUrlDtoCopyWith<_$_AppOperationUrlDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}

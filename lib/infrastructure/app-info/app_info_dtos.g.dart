@@ -73,3 +73,23 @@ Map<String, dynamic> _$$_AppNoticeButtonInfoDtoToJson(
       'title': instance.title,
       'deeplink': instance.deeplink,
     };
+
+_$_AppOperationUrlDto _$$_AppOperationUrlDtoFromJson(
+        Map<String, dynamic> json) =>
+    _$_AppOperationUrlDto(
+      terms: json['terms'] as String,
+      privacyPolicy: json['privacyPolicy'] as String,
+      userLocationPolicy: json['userLocationPolicy'] as String,
+      appVersion: json['appVersion'] == null
+          ? null
+          : AppVersionDto.fromJson(json['appVersion'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_AppOperationUrlDtoToJson(
+        _$_AppOperationUrlDto instance) =>
+    <String, dynamic>{
+      'terms': instance.terms,
+      'privacyPolicy': instance.privacyPolicy,
+      'userLocationPolicy': instance.userLocationPolicy,
+      'appVersion': instance.appVersion,
+    };

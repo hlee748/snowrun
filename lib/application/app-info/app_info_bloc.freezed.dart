@@ -19,32 +19,38 @@ mixin _$AppInfoEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAppInfo,
+    required TResult Function() getOperationUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAppInfo,
+    TResult? Function()? getOperationUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAppInfo,
+    TResult Function()? getOperationUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAppInfo value) getAppInfo,
+    required TResult Function(_GetOperationUrl value) getOperationUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAppInfo value)? getAppInfo,
+    TResult? Function(_GetOperationUrl value)? getOperationUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAppInfo value)? getAppInfo,
+    TResult Function(_GetOperationUrl value)? getOperationUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$_GetAppInfo implements _GetAppInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAppInfo,
+    required TResult Function() getOperationUrl,
   }) {
     return getAppInfo();
   }
@@ -115,6 +122,7 @@ class _$_GetAppInfo implements _GetAppInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAppInfo,
+    TResult? Function()? getOperationUrl,
   }) {
     return getAppInfo?.call();
   }
@@ -123,6 +131,7 @@ class _$_GetAppInfo implements _GetAppInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAppInfo,
+    TResult Function()? getOperationUrl,
     required TResult orElse(),
   }) {
     if (getAppInfo != null) {
@@ -135,6 +144,7 @@ class _$_GetAppInfo implements _GetAppInfo {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAppInfo value) getAppInfo,
+    required TResult Function(_GetOperationUrl value) getOperationUrl,
   }) {
     return getAppInfo(this);
   }
@@ -143,6 +153,7 @@ class _$_GetAppInfo implements _GetAppInfo {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAppInfo value)? getAppInfo,
+    TResult? Function(_GetOperationUrl value)? getOperationUrl,
   }) {
     return getAppInfo?.call(this);
   }
@@ -151,6 +162,7 @@ class _$_GetAppInfo implements _GetAppInfo {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAppInfo value)? getAppInfo,
+    TResult Function(_GetOperationUrl value)? getOperationUrl,
     required TResult orElse(),
   }) {
     if (getAppInfo != null) {
@@ -165,6 +177,108 @@ abstract class _GetAppInfo implements AppInfoEvent {
 }
 
 /// @nodoc
+abstract class _$$_GetOperationUrlCopyWith<$Res> {
+  factory _$$_GetOperationUrlCopyWith(
+          _$_GetOperationUrl value, $Res Function(_$_GetOperationUrl) then) =
+      __$$_GetOperationUrlCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetOperationUrlCopyWithImpl<$Res>
+    extends _$AppInfoEventCopyWithImpl<$Res, _$_GetOperationUrl>
+    implements _$$_GetOperationUrlCopyWith<$Res> {
+  __$$_GetOperationUrlCopyWithImpl(
+      _$_GetOperationUrl _value, $Res Function(_$_GetOperationUrl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetOperationUrl implements _GetOperationUrl {
+  const _$_GetOperationUrl();
+
+  @override
+  String toString() {
+    return 'AppInfoEvent.getOperationUrl()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetOperationUrl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAppInfo,
+    required TResult Function() getOperationUrl,
+  }) {
+    return getOperationUrl();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAppInfo,
+    TResult? Function()? getOperationUrl,
+  }) {
+    return getOperationUrl?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAppInfo,
+    TResult Function()? getOperationUrl,
+    required TResult orElse(),
+  }) {
+    if (getOperationUrl != null) {
+      return getOperationUrl();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAppInfo value) getAppInfo,
+    required TResult Function(_GetOperationUrl value) getOperationUrl,
+  }) {
+    return getOperationUrl(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAppInfo value)? getAppInfo,
+    TResult? Function(_GetOperationUrl value)? getOperationUrl,
+  }) {
+    return getOperationUrl?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAppInfo value)? getAppInfo,
+    TResult Function(_GetOperationUrl value)? getOperationUrl,
+    required TResult orElse(),
+  }) {
+    if (getOperationUrl != null) {
+      return getOperationUrl(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetOperationUrl implements AppInfoEvent {
+  const factory _GetOperationUrl() = _$_GetOperationUrl;
+}
+
+/// @nodoc
 mixin _$AppInfoState {
   DefaultStatus get status => throw _privateConstructorUsedError;
   AppVersion get appVersion => throw _privateConstructorUsedError;
@@ -173,6 +287,7 @@ mixin _$AppInfoState {
   bool? get canUpdateVersion => throw _privateConstructorUsedError;
   AppNotice get appNotice => throw _privateConstructorUsedError;
   bool? get isShowAppNotice => throw _privateConstructorUsedError;
+  AppOperationUrl get appOperationUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppInfoStateCopyWith<AppInfoState> get copyWith =>
@@ -192,10 +307,12 @@ abstract class $AppInfoStateCopyWith<$Res> {
       bool? isAvailableVersion,
       bool? canUpdateVersion,
       AppNotice appNotice,
-      bool? isShowAppNotice});
+      bool? isShowAppNotice,
+      AppOperationUrl appOperationUrl});
 
   $AppVersionCopyWith<$Res> get appVersion;
   $AppNoticeCopyWith<$Res> get appNotice;
+  $AppOperationUrlCopyWith<$Res> get appOperationUrl;
 }
 
 /// @nodoc
@@ -218,6 +335,7 @@ class _$AppInfoStateCopyWithImpl<$Res, $Val extends AppInfoState>
     Object? canUpdateVersion = freezed,
     Object? appNotice = null,
     Object? isShowAppNotice = freezed,
+    Object? appOperationUrl = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -248,6 +366,10 @@ class _$AppInfoStateCopyWithImpl<$Res, $Val extends AppInfoState>
           ? _value.isShowAppNotice
           : isShowAppNotice // ignore: cast_nullable_to_non_nullable
               as bool?,
+      appOperationUrl: null == appOperationUrl
+          ? _value.appOperationUrl
+          : appOperationUrl // ignore: cast_nullable_to_non_nullable
+              as AppOperationUrl,
     ) as $Val);
   }
 
@@ -264,6 +386,14 @@ class _$AppInfoStateCopyWithImpl<$Res, $Val extends AppInfoState>
   $AppNoticeCopyWith<$Res> get appNotice {
     return $AppNoticeCopyWith<$Res>(_value.appNotice, (value) {
       return _then(_value.copyWith(appNotice: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppOperationUrlCopyWith<$Res> get appOperationUrl {
+    return $AppOperationUrlCopyWith<$Res>(_value.appOperationUrl, (value) {
+      return _then(_value.copyWith(appOperationUrl: value) as $Val);
     });
   }
 }
@@ -283,12 +413,15 @@ abstract class _$$_AppInfoStateCopyWith<$Res>
       bool? isAvailableVersion,
       bool? canUpdateVersion,
       AppNotice appNotice,
-      bool? isShowAppNotice});
+      bool? isShowAppNotice,
+      AppOperationUrl appOperationUrl});
 
   @override
   $AppVersionCopyWith<$Res> get appVersion;
   @override
   $AppNoticeCopyWith<$Res> get appNotice;
+  @override
+  $AppOperationUrlCopyWith<$Res> get appOperationUrl;
 }
 
 /// @nodoc
@@ -309,6 +442,7 @@ class __$$_AppInfoStateCopyWithImpl<$Res>
     Object? canUpdateVersion = freezed,
     Object? appNotice = null,
     Object? isShowAppNotice = freezed,
+    Object? appOperationUrl = null,
   }) {
     return _then(_$_AppInfoState(
       status: null == status
@@ -339,6 +473,10 @@ class __$$_AppInfoStateCopyWithImpl<$Res>
           ? _value.isShowAppNotice
           : isShowAppNotice // ignore: cast_nullable_to_non_nullable
               as bool?,
+      appOperationUrl: null == appOperationUrl
+          ? _value.appOperationUrl
+          : appOperationUrl // ignore: cast_nullable_to_non_nullable
+              as AppOperationUrl,
     ));
   }
 }
@@ -353,7 +491,8 @@ class _$_AppInfoState implements _AppInfoState {
       required this.isAvailableVersion,
       required this.canUpdateVersion,
       required this.appNotice,
-      required this.isShowAppNotice});
+      required this.isShowAppNotice,
+      required this.appOperationUrl});
 
   @override
   final DefaultStatus status;
@@ -369,10 +508,12 @@ class _$_AppInfoState implements _AppInfoState {
   final AppNotice appNotice;
   @override
   final bool? isShowAppNotice;
+  @override
+  final AppOperationUrl appOperationUrl;
 
   @override
   String toString() {
-    return 'AppInfoState(status: $status, appVersion: $appVersion, isLatestVersion: $isLatestVersion, isAvailableVersion: $isAvailableVersion, canUpdateVersion: $canUpdateVersion, appNotice: $appNotice, isShowAppNotice: $isShowAppNotice)';
+    return 'AppInfoState(status: $status, appVersion: $appVersion, isLatestVersion: $isLatestVersion, isAvailableVersion: $isAvailableVersion, canUpdateVersion: $canUpdateVersion, appNotice: $appNotice, isShowAppNotice: $isShowAppNotice, appOperationUrl: $appOperationUrl)';
   }
 
   @override
@@ -392,7 +533,9 @@ class _$_AppInfoState implements _AppInfoState {
             (identical(other.appNotice, appNotice) ||
                 other.appNotice == appNotice) &&
             (identical(other.isShowAppNotice, isShowAppNotice) ||
-                other.isShowAppNotice == isShowAppNotice));
+                other.isShowAppNotice == isShowAppNotice) &&
+            (identical(other.appOperationUrl, appOperationUrl) ||
+                other.appOperationUrl == appOperationUrl));
   }
 
   @override
@@ -404,7 +547,8 @@ class _$_AppInfoState implements _AppInfoState {
       isAvailableVersion,
       canUpdateVersion,
       appNotice,
-      isShowAppNotice);
+      isShowAppNotice,
+      appOperationUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -421,7 +565,8 @@ abstract class _AppInfoState implements AppInfoState {
       required final bool? isAvailableVersion,
       required final bool? canUpdateVersion,
       required final AppNotice appNotice,
-      required final bool? isShowAppNotice}) = _$_AppInfoState;
+      required final bool? isShowAppNotice,
+      required final AppOperationUrl appOperationUrl}) = _$_AppInfoState;
 
   @override
   DefaultStatus get status;
@@ -437,6 +582,8 @@ abstract class _AppInfoState implements AppInfoState {
   AppNotice get appNotice;
   @override
   bool? get isShowAppNotice;
+  @override
+  AppOperationUrl get appOperationUrl;
   @override
   @JsonKey(ignore: true)
   _$$_AppInfoStateCopyWith<_$_AppInfoState> get copyWith =>
