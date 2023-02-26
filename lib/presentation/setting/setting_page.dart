@@ -47,17 +47,20 @@ class SettingState extends State<SettingPage> {
       providers: [
         BlocProvider<AppInfoBloc>(
             create: (context) =>
-                _appInfoBloc..add(const AppInfoEvent.getOperationUrl()))
+                _appInfoBloc..add(const AppInfoEvent.getAppInfo()))
       ],
       child: BlocBuilder<AppInfoBloc, AppInfoState>(
         builder: (context, appInfoState) {
+          print("WTF :: HOHO  :: ${appInfoState.appVersion.latest.getOrCrash()}");
+          print("WTF :: HOHO  :: ${appInfoState.appOperationInfos.length}");
+
           return Scaffold(
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
                   child: Container(
-                    color: Colors.blue,
+                    // color: Colors.blue,
                     child: CustomScrollView(
                       slivers: [
                         const SliverAppBar(
@@ -72,36 +75,18 @@ class SettingState extends State<SettingPage> {
                             )),
                         SliverList(
                             delegate: SliverChildBuilderDelegate(
-                                childCount: 4,
-                                (BuildContext context, int index) {
-                          return Column(
-                            children: [
-                              ListItem(
-                                title: getIt<AppInfoBloc>().state.appOperationUrl.terms.getOrCrash(),
-                                isVisibleArrow: true,
-                              ),
-                              ListItem(
-                                title: getIt<AppInfoBloc>().state.appOperationUrl.privacyPolicy.getOrCrash(),
-                                isVisibleArrow: true,
-                              ),
-                              ListItem(
-                                title: getIt<AppInfoBloc>().state.appOperationUrl.userLocationPolicy.getOrCrash(),
-                                isVisibleArrow: true,
-                              ),
-                              ListItem(
-                                title: '${getIt<AppInfoBloc>().state.appOperationUrl.appVersion.current?.getOrCrash()}',
-                                isVisibleArrow: true,
-                              )
-                            ],
+                                childCount: appInfoState.appOperationInfos
+                                    .length, (BuildContext context, int index) {
+                          final appOperationInfo =
+                              appInfoState.appOperationInfos[index];
+                          return ListItem(
+                            title: appOperationInfo.title.getOrCrash(),
+                            onTap: () {
+                              debugPrint(
+                                  appOperationInfo.link.getOrCrash());
+                            },
+                            isVisibleArrow: true,
                           );
-                          //   ListTile(
-                          //   leading: const Icon(Icons.home),
-                          //   trailing: const Icon(Icons.arrow_forward_ios),
-                          //   tileColor: Colors.blue,
-                          //   title: const Text("설정 리스트"),
-                          //   onTap: () {
-                          //   },
-                          // );
                         })),
                       ],
                     ),

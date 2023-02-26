@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:snowrun/domain/app-info/model/app_info.dart';
 import 'package:snowrun/domain/app-info/model/app_notice.dart';
 import 'package:snowrun/domain/app-info/model/app_notice_button_info.dart';
-import 'package:snowrun/domain/app-info/model/app_operation_url.dart';
+import 'package:snowrun/domain/app-info/model/app_operation_info.dart';
 import 'package:snowrun/domain/app-info/model/app_version.dart';
 import 'package:snowrun/domain/core/value_objects.dart';
 
@@ -17,12 +17,15 @@ class AppInfoDto with _$AppInfoDto {
   const factory AppInfoDto({
     @JsonKey(name: 'appVersion') AppVersionDto? appVersion,
     @JsonKey(name: 'appNotice') AppNoticeDto? appNotice,
+    @JsonKey(name: 'appOperationInfos') List<AppOperationInfoDto>? appOperationInfos,
   }) = _AppInfoDto;
 
   AppInfo toDomain() {
     return AppInfo(
-        appVersion: appVersion?.toDomain() ?? AppVersion.empty(),
-        appNotice: appNotice?.toDomain() ?? AppNotice.empty());
+      appVersion: appVersion?.toDomain() ?? AppVersion.empty(),
+      appNotice: appNotice?.toDomain() ?? AppNotice.empty(),
+      appOperationInfos: ListVO(appOperationInfos?.map((e) => e.toDomain()).toList() ?? []),
+    );
   }
 
   factory AppInfoDto.fromJson(Map<String, dynamic> json) =>
@@ -96,24 +99,20 @@ class AppNoticeButtonInfoDto with _$AppNoticeButtonInfoDto {
 }
 
 @freezed
-class AppOperationUrlDto with _$AppOperationUrlDto {
-  const AppOperationUrlDto._();
+class AppOperationInfoDto with _$AppOperationInfoDto {
+  const AppOperationInfoDto._();
 
-  const factory AppOperationUrlDto({
-    @JsonKey(name: 'terms') required String terms,
-    @JsonKey(name: 'privacyPolicy') required String privacyPolicy,
-    @JsonKey(name: 'userLocationPolicy') required String userLocationPolicy,
-    @JsonKey(name: 'appVersion') AppVersionDto? appVersion,
-  }) = _AppOperationUrlDto;
+  const factory AppOperationInfoDto({
+    @JsonKey(name: 'title') required String title,
+    @JsonKey(name: 'link') required String link,
+  }) = _AppOperationInfoDto;
 
-  AppOperationUrl toDomain() {
-    return AppOperationUrl(
-        terms: StringVO(terms),
-        privacyPolicy: StringVO(privacyPolicy),
-        userLocationPolicy: StringVO(userLocationPolicy),
-        appVersion: appVersion?.toDomain() ?? AppVersion.empty());
+  AppOperationInfo toDomain() {
+    return AppOperationInfo(
+          title: StringVO(title), link: StringVO(link),
+        );
   }
 
-  factory AppOperationUrlDto.fromJson(Map<String, dynamic> json) =>
-      _$AppOperationUrlDtoFromJson(json);
+  factory AppOperationInfoDto.fromJson(Map<String, dynamic> json) =>
+      _$AppOperationInfoDtoFromJson(json);
 }

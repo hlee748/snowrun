@@ -14,12 +14,16 @@ _$_AppInfoDto _$$_AppInfoDtoFromJson(Map<String, dynamic> json) =>
       appNotice: json['appNotice'] == null
           ? null
           : AppNoticeDto.fromJson(json['appNotice'] as Map<String, dynamic>),
+      appOperationInfos: (json['appOperationInfos'] as List<dynamic>?)
+          ?.map((e) => AppOperationInfoDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_AppInfoDtoToJson(_$_AppInfoDto instance) =>
     <String, dynamic>{
       'appVersion': instance.appVersion,
       'appNotice': instance.appNotice,
+      'appOperationInfos': instance.appOperationInfos,
     };
 
 _$_AppVersionDto _$$_AppVersionDtoFromJson(Map<String, dynamic> json) =>
@@ -74,22 +78,16 @@ Map<String, dynamic> _$$_AppNoticeButtonInfoDtoToJson(
       'deeplink': instance.deeplink,
     };
 
-_$_AppOperationUrlDto _$$_AppOperationUrlDtoFromJson(
+_$_AppOperationInfoDto _$$_AppOperationInfoDtoFromJson(
         Map<String, dynamic> json) =>
-    _$_AppOperationUrlDto(
-      terms: json['terms'] as String,
-      privacyPolicy: json['privacyPolicy'] as String,
-      userLocationPolicy: json['userLocationPolicy'] as String,
-      appVersion: json['appVersion'] == null
-          ? null
-          : AppVersionDto.fromJson(json['appVersion'] as Map<String, dynamic>),
+    _$_AppOperationInfoDto(
+      title: json['title'] as String,
+      link: json['link'] as String,
     );
 
-Map<String, dynamic> _$$_AppOperationUrlDtoToJson(
-        _$_AppOperationUrlDto instance) =>
+Map<String, dynamic> _$$_AppOperationInfoDtoToJson(
+        _$_AppOperationInfoDto instance) =>
     <String, dynamic>{
-      'terms': instance.terms,
-      'privacyPolicy': instance.privacyPolicy,
-      'userLocationPolicy': instance.userLocationPolicy,
-      'appVersion': instance.appVersion,
+      'title': instance.title,
+      'link': instance.link,
     };

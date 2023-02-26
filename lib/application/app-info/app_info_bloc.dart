@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:snowrun/domain/app-info/i_app_info_repository.dart';
 import 'package:snowrun/domain/app-info/model/app_notice.dart';
-import 'package:snowrun/domain/app-info/model/app_operation_url.dart';
+import 'package:snowrun/domain/app-info/model/app_operation_info.dart';
 import 'package:snowrun/domain/app-info/model/app_version.dart';
 import 'package:snowrun/application/default_status.dart';
 
@@ -50,25 +50,7 @@ class AppInfoBloc extends Bloc<AppInfoEvent, AppInfoState> {
             canUpdateVersion: !isLatestVersion(appInfo.appVersion),
             appNotice: appInfo.appNotice,
             isShowAppNotice: isShowAppNotice(appInfo.appNotice),
-          );
-        }),
-      );
-    });
-
-    on<_GetOperationUrl>((event, emit) async {
-      emit(state.copyWith(status: DefaultStatus.progress));
-      final failureOrResponse = await _appInfoRepository.getOperationUrl();
-      emit(
-        failureOrResponse.fold(
-            (f) => state.copyWith(
-                  status: DefaultStatus.success,
-                  appOperationUrl: AppOperationUrl.empty(),
-                  appVersion: AppVersion.empty(),
-                ), (appInfo) {
-          debugPrint("FULTTER_CORE :: app_info_bloc :: onSuccess");
-          return state.copyWith(
-            status: DefaultStatus.success,
-            appVersion: appInfo.appVersion,
+            appOperationInfos: appInfo.appOperationInfos.getOrCrash(),
           );
         }),
       );

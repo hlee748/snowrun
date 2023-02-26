@@ -18,6 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AppInfo {
   AppVersion get appVersion => throw _privateConstructorUsedError;
   AppNotice get appNotice => throw _privateConstructorUsedError;
+  ListVO<AppOperationInfo> get appOperationInfos =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppInfoCopyWith<AppInfo> get copyWith => throw _privateConstructorUsedError;
@@ -28,7 +30,10 @@ abstract class $AppInfoCopyWith<$Res> {
   factory $AppInfoCopyWith(AppInfo value, $Res Function(AppInfo) then) =
       _$AppInfoCopyWithImpl<$Res, AppInfo>;
   @useResult
-  $Res call({AppVersion appVersion, AppNotice appNotice});
+  $Res call(
+      {AppVersion appVersion,
+      AppNotice appNotice,
+      ListVO<AppOperationInfo> appOperationInfos});
 
   $AppVersionCopyWith<$Res> get appVersion;
   $AppNoticeCopyWith<$Res> get appNotice;
@@ -49,6 +54,7 @@ class _$AppInfoCopyWithImpl<$Res, $Val extends AppInfo>
   $Res call({
     Object? appVersion = null,
     Object? appNotice = null,
+    Object? appOperationInfos = null,
   }) {
     return _then(_value.copyWith(
       appVersion: null == appVersion
@@ -59,6 +65,10 @@ class _$AppInfoCopyWithImpl<$Res, $Val extends AppInfo>
           ? _value.appNotice
           : appNotice // ignore: cast_nullable_to_non_nullable
               as AppNotice,
+      appOperationInfos: null == appOperationInfos
+          ? _value.appOperationInfos
+          : appOperationInfos // ignore: cast_nullable_to_non_nullable
+              as ListVO<AppOperationInfo>,
     ) as $Val);
   }
 
@@ -86,7 +96,10 @@ abstract class _$$_AppInfoCopyWith<$Res> implements $AppInfoCopyWith<$Res> {
       __$$_AppInfoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AppVersion appVersion, AppNotice appNotice});
+  $Res call(
+      {AppVersion appVersion,
+      AppNotice appNotice,
+      ListVO<AppOperationInfo> appOperationInfos});
 
   @override
   $AppVersionCopyWith<$Res> get appVersion;
@@ -106,6 +119,7 @@ class __$$_AppInfoCopyWithImpl<$Res>
   $Res call({
     Object? appVersion = null,
     Object? appNotice = null,
+    Object? appOperationInfos = null,
   }) {
     return _then(_$_AppInfo(
       appVersion: null == appVersion
@@ -116,6 +130,10 @@ class __$$_AppInfoCopyWithImpl<$Res>
           ? _value.appNotice
           : appNotice // ignore: cast_nullable_to_non_nullable
               as AppNotice,
+      appOperationInfos: null == appOperationInfos
+          ? _value.appOperationInfos
+          : appOperationInfos // ignore: cast_nullable_to_non_nullable
+              as ListVO<AppOperationInfo>,
     ));
   }
 }
@@ -123,17 +141,22 @@ class __$$_AppInfoCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppInfo extends _AppInfo {
-  const _$_AppInfo({required this.appVersion, required this.appNotice})
+  const _$_AppInfo(
+      {required this.appVersion,
+      required this.appNotice,
+      required this.appOperationInfos})
       : super._();
 
   @override
   final AppVersion appVersion;
   @override
   final AppNotice appNotice;
+  @override
+  final ListVO<AppOperationInfo> appOperationInfos;
 
   @override
   String toString() {
-    return 'AppInfo(appVersion: $appVersion, appNotice: $appNotice)';
+    return 'AppInfo(appVersion: $appVersion, appNotice: $appNotice, appOperationInfos: $appOperationInfos)';
   }
 
   @override
@@ -144,11 +167,14 @@ class _$_AppInfo extends _AppInfo {
             (identical(other.appVersion, appVersion) ||
                 other.appVersion == appVersion) &&
             (identical(other.appNotice, appNotice) ||
-                other.appNotice == appNotice));
+                other.appNotice == appNotice) &&
+            (identical(other.appOperationInfos, appOperationInfos) ||
+                other.appOperationInfos == appOperationInfos));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, appVersion, appNotice);
+  int get hashCode =>
+      Object.hash(runtimeType, appVersion, appNotice, appOperationInfos);
 
   @JsonKey(ignore: true)
   @override
@@ -160,13 +186,16 @@ class _$_AppInfo extends _AppInfo {
 abstract class _AppInfo extends AppInfo {
   const factory _AppInfo(
       {required final AppVersion appVersion,
-      required final AppNotice appNotice}) = _$_AppInfo;
+      required final AppNotice appNotice,
+      required final ListVO<AppOperationInfo> appOperationInfos}) = _$_AppInfo;
   const _AppInfo._() : super._();
 
   @override
   AppVersion get appVersion;
   @override
   AppNotice get appNotice;
+  @override
+  ListVO<AppOperationInfo> get appOperationInfos;
   @override
   @JsonKey(ignore: true)
   _$$_AppInfoCopyWith<_$_AppInfo> get copyWith =>

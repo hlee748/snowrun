@@ -10,7 +10,7 @@ class AppInfoState with _$AppInfoState {
     required bool? canUpdateVersion,
     required AppNotice appNotice,
     required bool? isShowAppNotice,
-    required AppOperationUrl appOperationUrl,
+    required List<AppOperationInfo> appOperationInfos,
   }) = _AppInfoState;
 
   factory AppInfoState.initial() => AppInfoState(
@@ -21,6 +21,6 @@ class AppInfoState with _$AppInfoState {
     canUpdateVersion: null,
     appNotice: AppNotice.empty(),
     isShowAppNotice: null,
-    appOperationUrl: AppOperationUrl.empty(),
+    appOperationInfos: [],
   );
 }
