@@ -7,6 +7,7 @@ import 'package:snowrun/presentation/landing/landing_page.dart';
 import 'package:snowrun/presentation/navigate/navigate_page.dart';
 import 'package:snowrun/presentation/record/record_page.dart';
 import 'package:snowrun/presentation/setting/setting_page.dart';
+import 'package:snowrun/presentation/setting/version_page.dart';
 
 // Project imports:
 
@@ -57,6 +58,12 @@ import 'package:snowrun/presentation/setting/setting_page.dart';
     CustomRoute(
       page: SettingPage,
       path: '/setting',
+      // fullscreenDialog: true,
+      transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+    ),
+    CustomRoute(
+      page: VersionPage,
+      path: '/version',
       // fullscreenDialog: true,
       transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
     ),

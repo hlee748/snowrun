@@ -88,6 +88,21 @@ class SettingState extends State<SettingPage> {
                             isVisibleArrow: true,
                           );
                         })),
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            childCount: 1,
+                                  (BuildContext context, int index){
+                              return ListItem(
+                                  title: "버전정보",
+                                onTap: (){
+                                  appRouter.push(const VersionPageRoute());
+                                    debugPrint("${getIt<AppInfoBloc>().state.appVersion.current?.getOrCrash()}");
+                                },
+                                isVisibleArrow: true,
+                              );
+                                  }),
+
+                        ),
                       ],
                     ),
                   ),
