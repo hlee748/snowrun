@@ -35,11 +35,11 @@ Future<void> initServices({ bool isAnalyticsCollectEnabled = false,
   getIt.registerSingleton<AppRouter>(AppRouter());
 
   //background service
-  await getIt<HiveProvider>().initializeService();
+  await getIt<RecordService>().initializeService();
 
   //hive
   await Hive.initFlutter();
-  final localStore = getIt<LocalStore>();
+  final localStore = getIt<HiveProvider>();
   await localStore.init();
 
   //firebase

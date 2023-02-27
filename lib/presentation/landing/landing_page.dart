@@ -8,6 +8,7 @@ import 'package:snowrun/domain/app-info/model/app_notice.dart';
 import 'package:snowrun/domain/app-info/model/app_notice_button_info.dart';
 import 'package:snowrun/domain/app-info/model/app_version.dart';
 import 'package:snowrun/domain/core/value_objects.dart';
+import 'package:snowrun/infrastructure/hive/hive_provider.dart';
 
 // Package imports:
 import 'package:snowrun/injection/injection.dart';

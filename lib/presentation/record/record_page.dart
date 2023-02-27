@@ -32,8 +32,8 @@ class RecordPage extends StatefulWidget implements INavigateTabPage {
 class RecordState extends State<RecordPage> {
   // final RecordBloc _recordBloc = getIt<RecordBloc>();
   final appRouter = getIt<AppRouter>();
-  final recordService = getIt<HiveProvider>();
-  final localStore = getIt<LocalStore>();
+  final recordService = getIt<RecordService>();
+  final localStore = getIt<HiveProvider>();
 
   @override
   void initState() {

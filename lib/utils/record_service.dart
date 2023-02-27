@@ -4,17 +4,21 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
-import 'package:snowrun/injection/injection.dart';
+import 'package:snowrun/application/record/record_bloc.dart';
 import 'package:snowrun/infrastructure/hive/hive_provider.dart';
+import 'package:snowrun/injection/injection.dart';
 
 @Singleton()
-class HiveProvider {
+class RecordService {
   static const int timerDurationSecond = 2;
   final flutterBackgoundService = FlutterBackgroundService();
+  // final hive = getIt<HiveProvider>();
+  // hive.testHiveData("testData111111");
 
 
   initializeService() async {
     print('FBTEST ___ initializeService');
+    _checkLocationPermission();
     await flutterBackgoundService.configure(
       androidConfiguration: AndroidConfiguration(
         onStart: onStart,
@@ -27,6 +31,14 @@ class HiveProvider {
         // you have to enable background fetch capability on xcode project
         onBackground: onIosBackground,
       ),
+    );
+
+    flutterBackgoundService.on('updateupdate').listen(
+          (event) {
+        print('FBTEST ___ initializserService ___ listener on updateupdate');
+        // getIt<RecordBloc>().testtest("FBTEST ___ initializserService ___ listener on updateupdate");
+        getIt<HiveProvider>().testHiveData("asdfsadfas Test");
+      },
     );
   }
 
@@ -73,7 +85,6 @@ Timer? timer;
 void onStart(ServiceInstance service) async {
   // Only available for flutter 3.0.0 and later
   print('FBTEST ___ onStart');
-
   DartPluginRegistrant.ensureInitialized();
   service.on('start').listen(
         (event) {
@@ -83,8 +94,11 @@ void onStart(ServiceInstance service) async {
       timer ??= Timer.periodic(
           const Duration(seconds: 2),
               (timer) async {
-            final currentPosition = await _determinPosition();
+            final currentPosition = await _getCurrentLocation();
             print('FBTEST ___ onStart ___ timer ___ ${DateTime.now().toIso8601String()}, ${currentPosition.latitude}, ${currentPosition.longitude}');
+            // getIt<RecordBloc>().testtest('FBTEST ___ onStart ___ timer ___ ${DateTime.now().toIso8601String()}, ${currentPosition.latitude}, ${currentPosition.longitude}');
+            //     getIt<HiveProvider>().testHiveData("testData111111");
+            //     HiveProvider().testHiveData("testData111111");
             // final deviceInfo = DeviceInfoPlugin();
             // String? device;
             // if (Platform.isAndroid) {
@@ -104,6 +118,12 @@ void onStart(ServiceInstance service) async {
             //     "device": device,
             //   },
             // );
+            service.invoke(
+              'updateupdate',
+              {
+                "current_date": DateTime.now().toIso8601String(),
+              },
+            );
           },
         );
     },
@@ -131,7 +151,12 @@ stopRiding() {
   }
 }
 
-Future<Position> _determinPosition() async {
+Future<Position> _getCurrentLocation() async {
+  _checkLocationPermission();
+  return await Geolocator.getCurrentPosition();
+}
+
+_checkLocationPermission() async {
   bool serviceEnabled;
   LocationPermission permission;
   serviceEnabled = await Geolocator.isLocationServiceEnabled();
@@ -148,6 +173,4 @@ Future<Position> _determinPosition() async {
   if (permission == LocationPermission.deniedForever) {
     return Future.error('Location permissions are permanently denied');
   }
-  Position position = await Geolocator.getCurrentPosition();
-  return position;
 }

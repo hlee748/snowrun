@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
@@ -14,11 +15,12 @@ part 'record_state.dart';
 
 part 'record_bloc.freezed.dart';
 
-@injectable
+@singleton
 class RecordBloc extends Bloc<RecordEvent, RecordingState> {
   Timer? _timer;
   Timer? _initTimer;
   int initCountdown = 3;
+  //TODO : RecordRepository(IRecordRepository) -> hive provider
 
   RecordBloc() : super(RecordingState.initial()) {
     // on<_InitState>((event, emit) {
@@ -74,31 +76,14 @@ class RecordBloc extends Bloc<RecordEvent, RecordingState> {
     });
   }
 
+  testtest(String ttt) {
+    debugPrint("RECORDBLOC -> $ttt");
+  }
+
   stopRiding() {
     if (_timer != null) {
       _timer?.cancel();
       _timer = null;
     }
-  }
-
-  Future<Position> _determinPosition() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled');
-    }
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error("Location permission denied");
-      }
-    }
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error('Location permissions are permanently denied');
-    }
-    Position position = await Geolocator.getCurrentPosition();
-    return position;
   }
 }

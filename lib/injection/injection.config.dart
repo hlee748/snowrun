@@ -45,14 +45,14 @@ _i1.GetIt $initGetIt(
       () => injectableModule.deviceInfoPlugin);
   gh.lazySingleton<_i5.FirebaseRemoteConfig>(
       () => injectableModule.firebaseRemoteConfig);
-  gh.singleton<_i6.HiveProvider>(_i6.HiveProvider());
+  gh.singleton<_i6.RecordService>(_i6.RecordService());
   gh.lazySingleton<_i7.IAppInfoRepository>(
       () => _i8.AppInfoRepository(gh<_i5.FirebaseRemoteConfig>()));
   gh.lazySingleton<_i9.ILandingRepository>(() => _i10.LandingRepository());
   gh.lazySingleton<_i11.IRecordRepository>(() => _i12.RecordRepository());
   gh.factory<_i13.LandingBloc>(
       () => _i13.LandingBloc(gh<_i9.ILandingRepository>()));
-  gh.singleton<_i14.LocalStore>(_i14.LocalStore());
+  gh.singleton<_i14.HiveProvider>(_i14.HiveProvider());
   gh.factory<_i15.RecordBloc>(() => _i15.RecordBloc());
   gh.singleton<_i16.AppInfoBloc>(
       _i16.AppInfoBloc(gh<_i7.IAppInfoRepository>()));
