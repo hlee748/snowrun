@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:snowrun/injection/injection.dart';
 import 'package:snowrun/presentation/navigate/i_navigate_tab_page.dart';
 import 'package:snowrun/routes/router.gr.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Project imports:
 
@@ -26,6 +26,7 @@ class HomePage extends StatefulWidget implements INavigateTabPage{
 class HomeState extends State<HomePage> {
   // final AnonymousBloc _anonymousBloc = getIt<AnonymousBloc>();
   final appRouter = getIt<AppRouter>();
+  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -46,19 +47,20 @@ class HomeState extends State<HomePage> {
         children: [
           Container(
             color: Colors.yellow,
+            child: Center(
+              child: TextButton(
+                onPressed: () {
+                  print("firestore 버튼 눌림");
+                  String date = "Today";
+                  firebaseFirestore.collection("firestoreTest").doc("5leirGKJrAmWBUEaGCxB").get().then((value) => null);
+                },
+                child: Text("Firestore로 보내기!",
+                  style: TextStyle(
+                    decoration: TextDecoration.underline
+                  ),
+                ),),
+            ),
           )
-          // Align(
-          //   alignment: Alignment.bottomCenter,
-          //   child: IconButton(
-          //     onPressed: () {
-          //       appRouter.push(const RecordPageRoute());
-          //     },
-          //     icon: Image.asset(
-          //       'assets/pngs/record.png',
-          //       scale: 50.0,
-          //     ),
-          //   ),
-          // ),
         ]
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
