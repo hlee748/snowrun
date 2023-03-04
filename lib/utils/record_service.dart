@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
@@ -12,9 +15,11 @@ import 'package:snowrun/injection/injection.dart';
 class RecordService {
   static const int timerDurationSecond = 2;
   final flutterBackgoundService = FlutterBackgroundService();
+
   // final hive = getIt<HiveProvider>();
   // hive.testHiveData("testData111111");
 
+  // String? currentAuthToken;
 
   initializeService() async {
     print('FBTEST ___ initializeService');
@@ -33,17 +38,46 @@ class RecordService {
       ),
     );
 
-    flutterBackgoundService.on('updateupdate').listen(
-          (event) {
+    flutterBackgoundService.on('recording').listen(
+      (event) {
         print('FBTEST ___ initializserService ___ listener on updateupdate');
         // getIt<RecordBloc>().testtest("FBTEST ___ initializserService ___ listener on updateupdate");
-        getIt<HiveProvider>().testHiveData("asdfsadfas Test");
+        // getIt<HiveProvider>().testHiveData("asdfsadfas Test");
+
+        final currentDateTime = event?["currentDateTime"]?.toString();
+        // final currentPosition = event?["currentPosition"]?.toString();
+        // getIt<FirebaseFirestore>()
+
+        if (currentDateTime?.isNotEmpty == true &&
+            event?.toString().isNotEmpty == true) {
+          FirebaseFirestore.instance
+              .collection("firestoreTest")
+              // .doc("$currentAuthToken")
+              .doc("현주가탔어요")
+              .update({'$currentDateTime': event?.toString()})
+              // .set({'Today': DateTime.now()})
+              .then((value) => print("add Today date"))
+              .catchError((error) => print("Failed to add date: $error"));
+        }
+
+        // if (currentAuthToken != null) {
+        //   FirebaseFirestore.instance
+        //       .collection("record")
+        //       // .doc("$currentAuthToken")
+        //       .doc("현주가탔어요")
+        //       .update({'$currentDateTime': event?.toString()})
+        //       // .set({'Today': DateTime.now()})
+        //       .then((value) => print("add Today date"))
+        //       .catchError((error) => print("Failed to add date: $error"));
+        // }
       },
     );
   }
 
   startRecording() async {
-    print('FBTEST ___ startRecording ___ running invoke start111 ${await flutterBackgoundService.isRunning()}');
+    // currentAuthToken = await FirebaseAuth.instance.currentUser?.getIdToken();
+    print(
+        'FBTEST ___ startRecording ___ running invoke start111 ${await flutterBackgoundService.isRunning()}');
     if (await flutterBackgoundService.isRunning() == false) {
       await flutterBackgoundService.startService();
       print('FBTEST ___ startRecording ___ running invoke start222');
@@ -81,63 +115,44 @@ bool onIosBackground(ServiceInstance service) {
 }
 
 Timer? timer;
+
 @pragma('vm:entry-point')
 void onStart(ServiceInstance service) async {
   // Only available for flutter 3.0.0 and later
   print('FBTEST ___ onStart');
   DartPluginRegistrant.ensureInitialized();
   service.on('start').listen(
-        (event) {
+    (event) {
       print('FBTEST ___ onStart ___ listen on start');
       // final localStore = getIt<LocalStore>();
       // print("HOHOHO ::: ${localStore.recordBox}");
       timer ??= Timer.periodic(
-          const Duration(seconds: 2),
-              (timer) async {
-            final currentPosition = await _getCurrentLocation();
-            print('FBTEST ___ onStart ___ timer ___ ${DateTime.now().toIso8601String()}, ${currentPosition.latitude}, ${currentPosition.longitude}');
-            // getIt<RecordBloc>().testtest('FBTEST ___ onStart ___ timer ___ ${DateTime.now().toIso8601String()}, ${currentPosition.latitude}, ${currentPosition.longitude}');
-            //     getIt<HiveProvider>().testHiveData("testData111111");
-            //     HiveProvider().testHiveData("testData111111");
-            // final deviceInfo = DeviceInfoPlugin();
-            // String? device;
-            // if (Platform.isAndroid) {
-            //   final androidInfo = await deviceInfo.androidInfo;
-            //   device = androidInfo.model;
-            // }
-            //
-            // if (Platform.isIOS) {
-            //   final iosInfo = await deviceInfo.iosInfo;
-            //   device = iosInfo.model;
-            // }
-            //
-            // service.invoke(
-            //   'update',
-            //   {
-            //     "current_date": DateTime.now().toIso8601String(),
-            //     "device": device,
-            //   },
-            // );
-            service.invoke(
-              'updateupdate',
-              {
-                "current_date": DateTime.now().toIso8601String(),
-              },
-            );
-          },
-        );
+        const Duration(seconds: 5),
+        (timer) async {
+          final currentPosition = await _getCurrentLocation();
+          print(
+              'FBTEST ___ onStart ___ timer ___ ${DateTime.now().toIso8601String()}, ${currentPosition.latitude}, ${currentPosition.longitude}');
+          service.invoke(
+            'recording',
+            {
+              "currentDateTime": DateTime.now().toIso8601String(),
+              "currentPosition": currentPosition,
+            },
+          );
+        },
+      );
     },
   );
 
   service.on('pause').listen(
-        (event) {
+    (event) {
       print('FBTEST ___ onStart ___ listen on pause');
       stopRiding();
     },
   );
 
   service.on('stop').listen(
-        (event) {
+    (event) {
       print('FBTEST ___ onStart ___ listen on stop');
       stopRiding();
     },
