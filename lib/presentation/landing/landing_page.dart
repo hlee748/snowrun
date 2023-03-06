@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snowrun/application/app-info/app_info_bloc.dart';
 import 'package:snowrun/application/landing/landing_bloc.dart';
 import 'package:snowrun/domain/app-info/model/app_notice.dart';
@@ -95,6 +96,7 @@ class SplashState extends State<LandingPage> with TickerProviderStateMixin{
             return BlocBuilder<AppInfoBloc, AppInfoState>(
                 builder: (context, appInfoState) {
               return Scaffold(
+                backgroundColor: Color(0xff1F1F21),
                 body: Visibility(
                   visible: true,
                   // visible: getIt<LandingBloc>().state.title.isNotEmpty ? true : false,
@@ -105,26 +107,29 @@ class SplashState extends State<LandingPage> with TickerProviderStateMixin{
                     child: Center(
                       child: Container(
                         padding: const EdgeInsets.only(top: 120),
-                        color: const Color(0xff1F1F21),
+                        // color: const Color(0xff1F1F21),
                         child: Column(children: [
-                          Text(
-                            getIt<LandingBloc>().state.title,
-                            style: const TextStyle(
-                              fontSize: 48,
-                              letterSpacing: 4,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              // fontFamily: 'Josefin Sans',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
+                          // Text(
+                          //   getIt<LandingBloc>().state.title,
+                          //   style: const TextStyle(
+                          //     fontSize: 48,
+                          //     letterSpacing: 4,
+                          //     fontWeight: FontWeight.bold,
+                          //     color: Colors.white,
+                          //     // fontFamily: 'Josefin Sans',
+                          //   ),
+                          //   textAlign: TextAlign.center,
+                          // ),
                           const SizedBox(height: 48),
                           RotationTransition(
                             turns: turnsTween.animate(_controller),
-                            child: Image.asset(getIt<LandingBloc>().state.imageUrl,
-                            width: 200,
-                            height: 200,),
+                            child:
+                            Image.asset(getIt<LandingBloc>().state.imageUrl,
+                            // width: 200,
+                            // height: 200,
+                            ),
                           ),
+                          // SvgPicture.asset(getIt<LandingBloc>().state.imageUrl),
                           // Text(state.title),
                           // Image.asset(
                           //     state.imageUrl
@@ -145,35 +150,35 @@ class SplashState extends State<LandingPage> with TickerProviderStateMixin{
                           const SizedBox(
                             height: 12,
                           ),
-                          Center(
-                            child: Column(
-                              children: [
-                                const Text(
-                                  "App Version",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                                const SizedBox(height: 4,),
-                                Text(
-                                  "현재버전 : ${getIt<AppInfoBloc>().state.appVersion.current?.getOrCrash()}",
-                                  style: const TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                                Text(
-                                  "최소버전 : ${getIt<AppInfoBloc>().state.appVersion.min.getOrCrash()}",
-                                  style: const TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                                Text(
-                                  "최신버전 : ${getIt<AppInfoBloc>().state.appVersion.latest.getOrCrash()}",
-                                  style: const TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ),
+                          // Center(
+                          //   child: Column(
+                          //     children: [
+                          //       const Text(
+                          //         "App Version",
+                          //         style: TextStyle(
+                          //             fontSize: 16,
+                          //             fontWeight: FontWeight.bold,
+                          //             color: Colors.white),
+                          //       ),
+                          //       const SizedBox(height: 4,),
+                          //       Text(
+                          //         "현재버전 : ${getIt<AppInfoBloc>().state.appVersion.current?.getOrCrash()}",
+                          //         style: const TextStyle(
+                          //             fontSize: 12, color: Colors.white),
+                          //       ),
+                          //       Text(
+                          //         "최소버전 : ${getIt<AppInfoBloc>().state.appVersion.min.getOrCrash()}",
+                          //         style: const TextStyle(
+                          //             fontSize: 12, color: Colors.white),
+                          //       ),
+                          //       Text(
+                          //         "최신버전 : ${getIt<AppInfoBloc>().state.appVersion.latest.getOrCrash()}",
+                          //         style: const TextStyle(
+                          //             fontSize: 12, color: Colors.white),
+                          //       ),
+                          //     ],
+                          //   ),
+                          // ),
                         ]),
                       ),
                     ),

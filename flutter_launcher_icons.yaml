@@ -1,4 +1,4 @@
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/pngs/snowrun_logo.png"
+  image_path: "assets/pngs/snowrun_new_ic.png"
