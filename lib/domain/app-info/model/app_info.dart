@@ -27,9 +27,9 @@ class AppInfo with _$AppInfo {
   Option<ValueFailure<dynamic>> get failureOption {
     return appVersion.failureOption
         .fold(() => right(unit), (f) => left(f))
-        .andThen(
-            appNotice.failureOption.fold(() => right(unit), (a) => left(a)))
-        .andThen(appOperationInfos.failureOrUnit)
+        // .andThen(
+        //     appNotice.failureOption.fold(() => right(unit), (a) => left(a)))
+        // .andThen(appOperationInfos.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }
 }
