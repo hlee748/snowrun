@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,8 +36,17 @@ class SplashState extends State<LandingPage> with TickerProviderStateMixin{
   late Animation<double> _animation;
 
   final Tween<double> turnsTween = Tween<double>(
-    begin: 1,
-    end: 0,
+    begin: 0,
+    end: 1,
+  );
+
+  late final AnimationController _scaleupController = AnimationController(
+    duration: const Duration(milliseconds: 800),
+    vsync: this,
+  );
+  late final Animation<double> _scaleupAnimation = CurvedAnimation(
+    parent: _controller,
+    curve: Curves.fastOutSlowIn,
   );
 
   @override
@@ -75,6 +85,7 @@ class SplashState extends State<LandingPage> with TickerProviderStateMixin{
   @override
   void dispose() {
     _controller.dispose();
+    _scaleupController.dispose();
     super.dispose();
   }
 
@@ -95,8 +106,11 @@ class SplashState extends State<LandingPage> with TickerProviderStateMixin{
             print("HOHOHO ::: landing view ::: ${getIt<LandingBloc>().state}");
             return BlocBuilder<AppInfoBloc, AppInfoState>(
                 builder: (context, appInfoState) {
+                  Future.delayed(const Duration(milliseconds:  1000), () {
+                    context.router.replace(const NavigatePageRoute());
+                  });
               return Scaffold(
-                backgroundColor: Color(0xff1F1F21),
+                backgroundColor: Color(0xff000000),
                 body: Visibility(
                   visible: true,
                   // visible: getIt<LandingBloc>().state.title.isNotEmpty ? true : false,
@@ -105,82 +119,61 @@ class SplashState extends State<LandingPage> with TickerProviderStateMixin{
                     opacity: 1,
                     // opacity: getIt<LandingBloc>().state.title.isNotEmpty ? 1 : 0,
                     child: Center(
-                      child: Container(
-                        padding: const EdgeInsets.only(top: 120),
-                        // color: const Color(0xff1F1F21),
-                        child: Column(children: [
-                          // Text(
-                          //   getIt<LandingBloc>().state.title,
-                          //   style: const TextStyle(
-                          //     fontSize: 48,
-                          //     letterSpacing: 4,
-                          //     fontWeight: FontWeight.bold,
-                          //     color: Colors.white,
-                          //     // fontFamily: 'Josefin Sans',
-                          //   ),
-                          //   textAlign: TextAlign.center,
-                          // ),
-                          const SizedBox(height: 48),
-                          RotationTransition(
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                        const SizedBox(height: 48),
+                        Transform.scale(
+                          scale: 0.8,
+                          child: RotationTransition(
                             turns: turnsTween.animate(_controller),
                             child:
                             Image.asset(getIt<LandingBloc>().state.imageUrl,
-                            // width: 200,
-                            // height: 200,
                             ),
                           ),
-                          // SvgPicture.asset(getIt<LandingBloc>().state.imageUrl),
-                          // Text(state.title),
-                          // Image.asset(
-                          //     state.imageUrl
-                          // ),
-                          const SizedBox(height: 48),
-                          TextButton(
-                            onPressed: () {
-                              _appRouter.push(const NavigatePageRoute());
-                            },
-                            child: const Text(
-                              "Home 가기",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 12,
-                          ),
-                          // Center(
-                          //   child: Column(
-                          //     children: [
-                          //       const Text(
-                          //         "App Version",
-                          //         style: TextStyle(
-                          //             fontSize: 16,
-                          //             fontWeight: FontWeight.bold,
-                          //             color: Colors.white),
-                          //       ),
-                          //       const SizedBox(height: 4,),
-                          //       Text(
-                          //         "현재버전 : ${getIt<AppInfoBloc>().state.appVersion.current?.getOrCrash()}",
-                          //         style: const TextStyle(
-                          //             fontSize: 12, color: Colors.white),
-                          //       ),
-                          //       Text(
-                          //         "최소버전 : ${getIt<AppInfoBloc>().state.appVersion.min.getOrCrash()}",
-                          //         style: const TextStyle(
-                          //             fontSize: 12, color: Colors.white),
-                          //       ),
-                          //       Text(
-                          //         "최신버전 : ${getIt<AppInfoBloc>().state.appVersion.latest.getOrCrash()}",
-                          //         style: const TextStyle(
-                          //             fontSize: 12, color: Colors.white),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-                        ]),
-                      ),
+                        ),
+                        // TextButton(
+                        //   onPressed: () {
+                        //     _appRouter.push(const NavigatePageRoute());
+                        //   },
+                        //   child: const Text(
+                        //     "Home 가기",
+                        //     style: TextStyle(
+                        //       color: Colors.white,
+                        //       fontSize: 24,
+                        //     ),
+                        //   ),
+                        // ),
+                        // Center(
+                        //   child: Column(
+                        //     children: [
+                        //       const Text(
+                        //         "App Version",
+                        //         style: TextStyle(
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.bold,
+                        //             color: Colors.white),
+                        //       ),
+                        //       const SizedBox(height: 4,),
+                        //       Text(
+                        //         "현재버전 : ${getIt<AppInfoBloc>().state.appVersion.current?.getOrCrash()}",
+                        //         style: const TextStyle(
+                        //             fontSize: 12, color: Colors.white),
+                        //       ),
+                        //       Text(
+                        //         "최소버전 : ${getIt<AppInfoBloc>().state.appVersion.min.getOrCrash()}",
+                        //         style: const TextStyle(
+                        //             fontSize: 12, color: Colors.white),
+                        //       ),
+                        //       Text(
+                        //         "최신버전 : ${getIt<AppInfoBloc>().state.appVersion.latest.getOrCrash()}",
+                        //         style: const TextStyle(
+                        //             fontSize: 12, color: Colors.white),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                      ]),
                     ),
                   ),
                 ),

@@ -19,18 +19,6 @@ import 'package:snowrun/presentation/setting/version_page.dart';
       initial: true,
       path: '/landing',
     ),
-    // CustomRoute(
-    //   page: SelectStorePage,
-    //   path: '/select-store',
-    //   // fullscreenDialog: true,
-    //   transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
-    // ),
-    // CustomRoute(
-    //   page: QRScannerPage,
-    //   path: '/qr-scanner',
-    //   // fullscreenDialog: true,
-    //   transitionsBuilder: TransitionsBuilders.noTransition,
-    // ),
     CustomRoute(
       page: NavigatePage,
       path: '/home',
@@ -73,30 +61,6 @@ import 'package:snowrun/presentation/setting/version_page.dart';
       // fullscreenDialog: true,
       transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
     ),
-    // CustomRoute(
-    //   page: MallManagementPage,
-    //   path: '/mall-management',
-    //   // fullscreenDialog: true,
-    //   transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
-    // ),
-    // CustomRoute(
-    //   page: ExportOrderPage,
-    //   path: '/export-order',
-    //   // fullscreenDialog: true,
-    //   transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
-    // ),
-    // CustomRoute(
-    //   page: MyPage,
-    //   path: '/mypage',
-    //   // fullscreenDialog: true,
-    //   transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
-    // ),
-    // CustomRoute(
-    //   page: TakeOrderPage,
-    //   path: '/take-order',
-    //   // fullscreenDialog: true,
-    //   transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
-    // ),
 
     /*
     Service
